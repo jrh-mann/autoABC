@@ -1,0 +1,169 @@
+\section{Overview} \label{sec:method}
+
+In this section, we present an overview of our work. We first introduce a taxonomy 
+of validity issues in agentic benchmarks and then describe the process of our 
+benchmark collection, checklist development, and benchmark assessment. Finally,
+we release our 
+code\footnote[1]{\url{https://github.com/uiuc-kang-lab/agentic-benchmarks}} 
+and build a 
+website\footnote[2]{\url{https://uiuc-kang-lab.github.io/agentic-benchmarks/}} 
+for continuous development and future updates.
+
+% \begin{table}
+%     \centering
+%     \footnotesize
+%     \caption{Annotations used to formalize an agentic benchmark with \taubench as an example.}
+%     \label{tab:anno}
+%     \begin{tabular}{cll}
+%         \toprule
+%         Symbol & Meaning & Example (\taubench) \\
+%         \midrule
+%         $C_i$  & Challenge in the benchmark.    & Addressing user's request as an assistant. \\
+%         $D_i$  & Description of $C_i$.      & A description of domain (\eg, airline) policy. \\
+%         $E_i$  & Operating environment of agents. & An environment with functions and data. \\
+%         % $\ganswer$  & ground truth answer to $D_i$.  & A correct answer to user's query. \\
+%         $\tanswer$  & Ground-truth answer to $D_i$.              & A correct answer annotated by human. \\
+%         $\aanswer$ & Agent's answer to $D_i$.        & All responses of the agent. \\
+%         % $\gstate$ & ground truth final state of $E_i$.       & The data content after user's query is completed. \\
+%         $\tstate$ & Ground-truth final state of $E_i$.  & The final data content annotated by human. \\
+%         $\astate$ & Final state of $E_i$ after the agent completes. & The data content after the agent completes. \\
+%         $\feval$ & Function to evaluate $R_i^{(A)}$ and $S_i^{(A)}$. & Substring matching and checksum matching. \\
+%         \bottomrule
+%     \end{tabular}
+% \end{table}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{figures/overview.pdf}
+    \caption{Operational and conceptual processes of agentic evaluation. An 
+    agentic benchmark measures the capability of AI agents via agentic tasks. It 
+    determines the success of a task by evaluating the task outcomes. 
+    Establishing task validity (e.g., equivalence between the target capability 
+    and the task success) and outcome validity (e.g., equivalence between the 
+    task success and positive evaluation results) are keys to ensure rigorous 
+    agentic evaluation.}
+    \label{fig:overview}
+\end{figure}
+
+\color{black}
+\minihead{Taxonomy}
+We first identify and classify the primary challenges in rigorous agentic 
+evaluation. In Figure \ref{fig:overview}, we decompose the operational and 
+conceptual process of agentic evaluation. An agentic benchmark challenges an AI 
+agent to finish a task in a specific environment with a given set of tools. 
+After several rounds of (inter-) actions, the AI agent presents a task outcome, 
+which indicates whether the task completion state. To automatically determine 
+whether the task is successful, the agentic benchmark develops customized 
+methods based on the task requirements, such as string matching 
+\cite{webarena-leaderboard,yaotau} and testing \cite{jimenez2024swe,ouyang2025kernelbench}.
+
+Conceptually, an agentic evaluation is rigorous if and only if (1) the target 
+capability is equivalent to task success (\ie, task validity), and (2) the task 
+success is equivalent to a positive evaluation result (\ie, outcome validity). 
+However, agentic benchmark presents two unique challenges that makes these two 
+validity conditions difficult to hold:
+\begin{enumerate}[leftmargin=*]
+\item \textit{Complex task setup}: In addition to task descriptions as inputs, 
+        agentic benchmarks set up an environment for agents to operate in and 
+        provide tools for agents to use. 
+\item \textit{Unstructured task outcome}: Agentic benchmarks expect unstructured 
+        data as task outcomes, such as textual responses, code, and file edits. 
+        Verifying the correctness of such outcomes are non-trivial and requires 
+        specially designed methods.
+\end{enumerate}
+
+First, improper task setup can lead to the violation of task validity. For 
+instance, \taubench includes intentionally unattainable tasks (\eg, making 
+changes to a non-refundable ticket), which agents are supposed to recognize and 
+reject \cite{yaotau}. Yet, a trivial agent that simply returns nothing is 
+considered a successful completion even though it cannot look up information 
+or interpret ticket rules. Second, failure to rigorously grade unstructured 
+task outcome can break outcome validity. For example, \swebench-Verified 
+judges agent-generated patches by handwritten unit tests \cite{swebench-verified}. 
+Since such tests can be incomplete or not perfectly sound \cite{zhu1997software,
+utboost}, a patch that passes them may still be wrong. Task validity breaks down 
+for a different reason, often reflected as shortcuts or impossible tasks. 
+
+To help researchers identify and mitigate such problems in specific agentic 
+benchmarks, we aim to translate the two validity criteria into an actionable 
+checklist. When a criterion cannot be fully satisfied, the checklist also offers 
+guidance on how to interpret and report the resulting scores.
+
+\color{black}
+
+
+% We consider an agentic benchmark as a set of challenges $\{C_1, \ldots, C_n\}$, 
+% where each challenge $C_i$ contains a description $D_i$ and an environment $E_i$. 
+% Each challenge $C_i$ is annotated with a textual ground-truth answer $\tanswer$, a 
+% ground-truth final state $\tstate$, or both. Given $D_i$, an agent performs 
+% reasoning and interacts with $E_i$ to produce an answer $\aanswer$ and a final 
+% environment state $\astate$. Finally, we evaluate $\aanswer$ and $\astate$ 
+% against $\tanswer$ and $\tstate$ using a customized method $\feval$ that 
+% produces binary results---success (1) or failure (0). We provide an example of
+% our formalization in Table \ref{tab:anno} using \taubench \cite{yaotau}.
+% \begin{gather*}
+%     \mathrm{Agent}\left(D_i, E_i\right) = \left(\aanswer, \astate\right); \quad
+%     % \mathrm{Annotate}\left(D_i, E_i\right) = \left(\tanswer, \tstate\right) \\
+%     \feval\left(\aanswer, \astate, \tanswer, \tstate\right) \in \{0, 1\}
+% \end{gather*}
+% A rigorous evaluation must ensure that $\feval$ returns 1 when an agent can 
+% complete $C_i$ and 0 when it cannot. However, this guarantee holds only if the 
+% following conditions are satisfied.
+% % Outcome-based evaluations cause issues when the result of $\feval$ do not 
+% % exactly align with the agent's capability. Specifically,
+% \begin{enumerate}[leftmargin=*]
+%     \item \textit{Outcome validity}. The result of $\feval$ aligns with 
+%     the success of an agent. 
+%     % This is often caused by inherent limitations of 
+%     % $\feval$, such as insufficient unit tests in \swebench-Verified \cite{utboost}.
+%     \item \textit{Task validity}. The success of an agent aligns 
+%     with the capability of the agent. 
+%     % This is often reflected as shortcuts or
+%     % impossible tasks, caused by invalid environment $E_i$, challenge description 
+%     % $D_i$, or ground truth $\left(\tanswer, \tstate\right)$.
+% \end{enumerate}
+
+\minihead{Benchmark Collection}
+To develop the checklist, we collected a set of popular agentic benchmarks as 
+the corpus for our study. To emphasize common and representative issues, we focused on 
+popular agentic benchmarks used by top AI providers, including OpenAI, Anthropic, 
+Amazon, Meta, Google, xAI, Mistral, and DeepSeek, or those winning awards in 
+peer-reviewed academic conferences. This narrows our focus to a set of 17 
+agentic benchmarks (Table \ref{tab:all-benchmarks}). We defer the details of our
+benchmark collection to Appendix \ref{sec:benchmark-list}.
+
+% Unfortunately, assessing 
+% an agentic benchmark from a third-party perspective is time-consuming and computationally 
+% expensive. Therefore, we selected and assessed 10 agentic benchmarks (Table 
+% \ref{tab:benchmarks}) that covers all the design choices to achieve a broad set 
+% of existing practices.
+
+\minihead{Checklist Development}
+We first reviewed the collected benchmarks and surveyed AI agent evaluation 
+frameworks \cite{ukaisi,openai-preparedness,metr,metr-protocol} together with
+documented issues in agentic benchmarks \cite{kapoor2024ai,pourreza2023evaluating,
+key,lange2025ai,utboost}. We then examined best practices for evaluating 
+unstructured task outcomes in related domains, such as software testing. 
+Integrating these insights with our own experience in benchmark development, we 
+curated the Agentic Benchmark Checklist (\name), which has three parts: task 
+validity, outcome validity, and benchmark reporting. We provide the source of 
+each checklist item in Appendix \ref{sec:app-source}.
+
+\minihead{Benchmark Assessment}
+We applied \name to thoroughly assess ten selected benchmarks (Table 
+\ref{tab:benchmarks}). We selected these benchmarks from the open-source set in
+Table \ref{tab:all-benchmarks}, prioritizing their popularity 
+and ensuring all types of agent capabilities are covered. We assigned 1 point 
+to each satisfied item and 0 otherwise. For each issue identified by the 
+checklist, we designed experiments to validate the issue and obtained 
+quantitative results (Section \ref{sec:results}). We defer detailed assessment
+results to Appendix \ref{sec:app-reports} and case studies to Appendix \ref{sec:cases}.
+% Two of our authors independently scored each item, achieving an agreement rate of \mytodo{X\%}. For any 
+% discrepancies, we resolved the final score through discussion.
+
+% \minihead{Step 5: Release}
+% We released our experiment 
+% designs
+% and built a 
+% website
+% for releasing existing assessment results and future updates.

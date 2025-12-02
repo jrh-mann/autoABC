@@ -1,0 +1,124 @@
+\section{Introduction}
+
+AI agents that integrate machine learning models with tools, memory, and
+knowledge are emerging with the capability to solve complex problems
+\cite{yang2024swe,yaoreact,chen2023autoagents,he2024webvoyager,
+shinn2023reflexion,lin2023swiftsage,tang2024worldcoder}. To evaluate AI agents, 
+researchers and practitioners have built \textit{agentic benchmarks} with 
+realistic tasks to track progress and assist decision-making \cite{zhouwebarena,
+yaotau,jimenez2024swe,xie2024osworld,chan2024mle,li2023can,glazer2024frontiermath,
+zhang2024cybench,ouyang2025kernelbench,mialon2023gaia}.
+AI agents have exhibited impressive performance on these benchmarks. For example, 
+a GPT-4o-based agent resolves 35\% of tasks on \taubench-Airline, a benchmark 
+for tool-agent-user interaction \cite{yaotau}. As agentic benchmarks become 
+increasingly impactful in academia and industry, it is crucial to ensure these
+numbers can be trusted.
+
+Agentic benchmarks differ fundamentally from traditional AI benchmarks. 
+Multiple-choice datasets (\eg, ImageNet \cite{deng2009imagenet} and MMLU 
+\cite{hendrycks2020measuring}) evaluate models by their accuracy on categorical labels, 
+while text-generation benchmarks rely on automatic metrics (\eg, BLEU 
+\cite{papineni2002bleu}). By contrast, success is defined by 
+completing end-to-end tasks in agentic settings. Therefore, an agent may perform 
+coherent reasoning, write code, and execute commands to produce a final outcome. 
+Subsequently, the performance of the agent is determined by comparing its final 
+outcome with a ground-truth outcome, using various methods, such as program 
+testing and string matching \cite{zhouwebarena,yaotau,jimenez2024swe,
+xie2024osworld,chan2024mle,li2023can,zhang2024cybench,ouyang2025kernelbench,
+mialon2023gaia}. 
+
+Unfortunately, many existing outcome-based evaluation methods of agentic 
+benchmarks introduce issues that can cause under- or overestimation of agent capabilities by 
+up to 100\% in relative terms, compromising the validity of their findings 
+\cite{utboost,lange2025ai,wretblad2024understanding,pourreza2023evaluating,metr-kernel}. For 
+example, \swebench-Verified challenges an agent to resolve GitHub issues, and 
+considers the agent successful if the patch it generates passes manually vetted 
+unit tests \cite{swebench-verified}. However, recent work has shown that passing 
+these tests does not necessarily indicate that the issue is resolved, because unit 
+tests can fail to capture important edge cases. Consequently, 24\% of the top 50
+leaderboard positions are incorrect \cite{utboost,swe-leaderboard}. In addition, 
+we find that in \taubench, a trivial agent that returns empty responses is 
+considered successful on intentionally impossible tasks (\eg, changing a 
+non-refundable ticket). This trivial agent achieves a 38\% success rate and 
+outperforms a GPT-4o-based agent \cite{yaotau}.
+
+Although issues in evaluation rigor can significantly skew evaluation results, 
+they are still frequently overlooked in the current development, deployment, and 
+analysis of agentic benchmarks. To better understand this problem, we analyzed 
+prior work on agentic benchmark pitfalls  \cite{utboost,lange2025ai,
+wretblad2024understanding,pourreza2023evaluating,metr-kernel} and 17 widely used
+agentic benchmarks (Table \ref{tab:all-benchmarks}), such as
+\swebench-Verified \cite{swebench-verified}, \gaia \cite{mialon2023gaia}, 
+\taubench \cite{yaotau}, and \webarena \cite{zhouwebarena}. Combining insights from the 
+literature with our own experience in developing benchmarks, we identified two 
+major conditions of the validity of benchmark results:
+\begin{itemize}[leftmargin=*]
+    \item \textit{Outcome validity}: the evaluation result (\eg, tests or 
+    checks) truly indicates task success. \swebench-Verified fails here 
+    because an incorrect patch can still pass the test suite.
+    \item \textit{Task validity}: a task should be solvable if and only if the 
+    agent possesses the target capability. \revise{Issues in task design or 
+    implementation often breaks task validity.} For example, \taubench allows a 
+    trivial agent to pass 38\% of tasks without knowledge of airline-ticketing rules.
+\end{itemize}
+
+%% introduce our work
+Following prior work on analyzing AI and code benchmarks \cite{reuelbetterbench,
+cao2025should}, we formulate our insights into an \textbf{A}gentic 
+\textbf{B}enchmark \textbf{C}hecklist (\name) to assist benchmark developers and 
+users in critically designing and assessing agentic benchmarks. Using \name, we 
+assessed ten popular agentic benchmarks that span the full range of agent 
+capabilities, resulting in seven benchmarks with flaws in outcome validity, seven 
+with issues in task validity, and all with limitations in the result 
+reporting. In addition to the issues found in \taubench-Airline, some other 
+example issues we found are: 
+(1) an agent can score 100\% on \swelancer \cite{miserendino2025swe} without resolving any tasks; 
+(2) \kernelbench \cite{ouyang2025kernelbench} overestimates agents' capabilities in generating correct 
+kernel functions by 31\% in absolute terms due to incomprehensive fuzz testing; 
+(3) \webarena \cite{zhouwebarena} overestimates performance of agents by 5.2\% due to various issues in its string matching.
+To demonstrate ABC’s practical value, we applied it to improve \cvebench, a 
+complex, representative cybersecurity benchmark
+\cite{zhu2025cve}. \name reduced performance overestimation in \cvebench by 
+33\% in absolute terms, as confirmed by cybersecurity experts.
+
+%% contributions 
+We summarize our contributions as follows:
+\begin{enumerate}[leftmargin=*]
+    \item We identified two significant threats in the evaluation rigor of agentic 
+    benchmarks: outcome validity and task validity.
+    \item We developed an actionable checklist, \name, to critically assess
+    existing agentic benchmarks and to establish best practices for future 
+    development.
+    \item We applied \name to assess ten widely used agentic benchmarks and 
+    identified new evaluation issues that cause estimation errors of agents' 
+    performance by up to 100\% in relative terms.
+    \item We provided a case study of using \name to improve an agentic benchmark
+    during development.
+\end{enumerate}
+
+% We structure the rest of this paper as follows. In Section~\ref{sec:rel-word}, 
+% we review the existing literature and efforts in benchmarking AI agents and 
+% analyzing agentic benchmarks. We discuss the design of our study in 
+% Section~\ref{sec:method}. Next, Section~\ref{sec:checklist} introduces the 
+% actionable checklists for agentic benchmarks. Finally, we present our 
+% qualitative and quantitative findings in Section~\ref{sec:results}.
+
+
+
+% \begin{table}[t]
+%     \centering
+%     \caption{Difference between Agentic Benchmarks and Multiple-Choice Benchmarks.}
+%     \label{tab:comp}
+%     \begin{tabular}{c|c|c}
+%         \toprule
+%          & Agentic Benchmark & Multiple-Choice Benchmark \\
+%         \midrule
+%         Evaluated capability & High-level, multidimensional & Fundamental, one-dimension \\
+%         Data annotation & More complex & Less complex \\
+%         \# Reasoning steps & $>1$ & $\sim 1$ \\
+%         \# Ways to complete a task & > 1 & = 1 \\
+%         $\mathbb{P}[\mathrm{Success\ by\ guess}]$ & $\sim 0$ & $=\frac{1}{\mathrm{\# choices}}$ \\
+%         \makecell{Evaluation method} & Task-specific & Direct match \\
+%         \bottomrule
+%     \end{tabular}
+% \end{table}

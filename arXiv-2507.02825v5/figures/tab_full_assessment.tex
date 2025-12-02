@@ -1,0 +1,369 @@
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of SWE-Bench-Lancer (\href{https://arxiv.org/pdf/2502.12115}{paper}, \href{https://github.com/openai/SWELancer-Benchmark?tab=readme-ov-file}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.d.1} & 1 & {As discussed in Section 1 of the paper, the benchmark uses a set of test cases that are verified for correctness\\ and quality by human experts.} \\
+\textbf{O.d.2} & 0 & The benchmark does not use objective metrics to measure the quality of test cases. \\
+\textbf{O.f.2} & 1 & As discussed in Section 1, the end-to-end testing is designed to simulate the entire user workflow. \\
+\textbf{O.f.3} & 0 & {The test cases use hard-coded timeouts, which may lead to non-deterministic results if the system is slow or\\ unresponsive.} \\
+\textbf{T.1} & 1 & The package dependencies are specified in the repository of each task. \\
+\textbf{T.2} & 1 & The benchmark does not require any external APIs. \\
+\textbf{T.3} & 1 & The benchmark does not require any external APIs. \\
+\textbf{T.4} & 1 & The benchmark uses docker containers to isolate the environment, and the state is cleared between runs. \\
+\textbf{T.5} & 0 & {The agent can access the file system where the test cases are stored, which may lead to the agent accessing the\\ ground truth information.} \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 1 & The ground-truth test cases are taken from GitHub repositories, which are verified by expert developers. \\
+\textbf{T.8} & 1 & Each task represents a real-world software issue with a corresponding patch, which are solvable by the agent. \\
+\textbf{T.9} & 1 & The benchmark uses existing patches as ground truth, which can be considered as an Oracle solver. \\
+\textbf{T.10} & 0 & {The benchmark does not handle the isolation between the agent and test cases properly. The test cases are stored\\ not only in a file system that the agent can access, but also in a ZIP file that agent can read the directory structure and update files.} \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark provides an open-source evaluation harness for users. \\
+\textbf{R.3} & 1 & The benchmark maintains a private test set. \\
+\textbf{R.4} & 0 & The report does not discuss any measures or plans for consistent update. \\
+\textbf{R.5} & 1 & Such a relationship is clearly stated in Section 2 of the paper. \\
+\textbf{R.6} & 1 & As shown in Section 3, the benchmark is designed to evaluate the LLM model. \\
+\textbf{R.7} & 1 & The benchmark uses end-to-end testing to mitigate grader hacking. \\
+\textbf{R.8} & 1 & The benchmark discusses the potential impact of grader hacking in Section 1 and Appendix A.7. \\
+\textbf{R.9} & 0 & The benchmark does not include any quantitative analysis to assess the impact of grader hacking. \\
+\textbf{R.10} & 0 & The benchmark does not report any metrics about statistical significance. \\
+\textbf{R.11} & 0 & The benchmark does not provide any guidance on interpreting results with eval flaws. \\
+\textbf{R.12} & 0 & The benchmark does not report results of non-AI baselines. \\
+\textbf{R.13} & 0 & The benchmark does not report results of trivial agents. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of Bird-Bench (\href{https://arxiv.org/pdf/2305.03111}{paper}, \href{https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.d.1} & 1 & {As discussed in Section 3.4 of the paper, the validity of the database is verified by executing the ground-truth\\ query.} \\
+\textbf{O.d.2} & 0 & {The paper does not use objective metrics to measure the usefulness and completeness of the database or\\ ground-truth queries.} \\
+\textbf{O.f.2} & 0 & The paper does not provide any information about the coverage of the database or ground-truth queries. \\
+\textbf{O.f.3} & 1 & {Executing SQL queries on a database is deterministic, and the paper does not mention any non-deterministic\\ behavior.} \\
+\textbf{T.1} & 1 & The task instruction in Figure 9 specifies the SQL language is SQLite. \\
+\textbf{T.2} & 1 & No external API is required for the evaluation of the benchmark. \\
+\textbf{T.3} & 1 & No external API is required for the evaluation of the benchmark. \\
+\textbf{T.4} & 0 & {Database file is neither opened in a read-only mode nor re-initialized between runs. This may lead to unexpected\\ data manipulation by the agent.} \\
+\textbf{T.5} & 1 & Agent cannot access the host file system. \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 0 & {As discussed in Section 3.4 of the paper, the correctness of the query is not fully verified, especially for the\\ SQL queries that two annotators reach a consensus on.} \\
+\textbf{T.8} & 0 & The ambiguity of the SQL queries is not fully verified. \\
+\textbf{T.9} & 0 & The Benchmark does not include an Oracle solver that can automatically solve all text-to-SQL tasks. \\
+\textbf{T.10} & 1 & No vulnerabilities are found in the implementation of the benchmark. \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark provides an open-source evaluation harness for users. \\
+\textbf{R.3} & 1 & The benchmark has a private test set. \\
+\textbf{R.4} & 0 & The benchmark does not discuss any measures or plans for consistent update. \\
+\textbf{R.5} & 1 & It is clearly discussed in Section 2 of the paper. \\
+\textbf{R.6} & 1 & It is clearly discussed in Section 2 of the paper. \\
+\textbf{R.7} & 0 & No efforts are made to mitigate errors when both annotators make the same mistake. \\
+\textbf{R.8} & 0 & The paper does not discuss the potential impact of annotation errors. \\
+\textbf{R.9} & 0 & The paper does not analyze the quantitative impact of annotation errors. \\
+\textbf{R.10} & 0 & The paper does not report any metrics about statistical significance. \\
+\textbf{R.11} & 0 & The paper does not provide any guidance on interpreting results with eval flaws. \\
+\textbf{R.12} & 1 & The paper reports the results of human experts. \\
+\textbf{R.13} & 0 & The paper does not report the results of any trivial agents. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of CyBench (\href{https://arxiv.org/pdf/2408.08926}{paper}, \href{https://github.com/andyzorigin/cybench}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.h.1} & 1 & The specific format required for the answer is provided in the task description. \\
+\textbf{O.h.2} & 1 & The ground truth is complex enough to prevent trivial guessing. \\
+\textbf{T.1} & 1 & Agents are granted access to using all tools. The versions of tools can be checked by the agent. \\
+\textbf{T.2} & 1 & The benchmark does not require any external APIs. \\
+\textbf{T.3} & 1 & The benchmark does not require any external APIs. \\
+\textbf{T.4} & 1 & The benchmark uses docker containers to isolate the environment, and the state is cleared between runs. \\
+\textbf{T.5} & 1 & The agent cannot directly access the container which contains the ground truth. \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 1 & As shown in Section 3.3 of the paper, the ground truth is verified by human. \\
+\textbf{T.8} & 1 & As shown in Section 3.3 of the paper, each task is verified to be solvable. \\
+\textbf{T.9} & 1 & {As shown in Section 3.3 of the paper, the benchmark includes an Oracle solver that can automatically solve all\\ tasks.} \\
+\textbf{T.10} & 1 & No vulnerabilities are found in the implementation of the benchmark. \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark provides an open-source evaluation harness for users. \\
+\textbf{R.3} & 0 & The benchmark does not contain measures to prevent data contamination. \\
+\textbf{R.4} & 0 & The report does not discuss plans to consistently update tasks over time. \\
+\textbf{R.5} & 1 & Such a relationship is clearly stated in Section 1 of the paper. \\
+\textbf{R.6} & 1 & As shown in Section 1, the benchmark is designed to evaluate both agent frameworks and LLM models. \\
+\textbf{R.7} & 1 & Annotation flaws are mitigated by developing verifiable tasks. \\
+\textbf{R.8} & 1 & No unavoidable flaws are identified in the benchmark. \\
+\textbf{R.9} & 1 & No unavoidable flaws are identified in the benchmark. \\
+\textbf{R.10} & 0 & The report does not include any metrics about statistical significance. \\
+\textbf{R.11} & 1 & No evaluation flaws are identified in the benchmark. \\
+\textbf{R.12} & 1 & Human performance is reported in Section 5 of the paper. \\
+\textbf{R.13} & 0 & The report does not report results of trivial agents. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of SWE-Bench-Verified (\href{https://arxiv.org/pdf/2310.06770}{paper}, \href{https://github.com/SWE-bench/SWE-bench}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.d.1} & 1 & Test cases are directly taken from GitHub repositories, and the paper does not mention any verification process. \\
+\textbf{O.d.2} & 0 & The paper does not use objective metrics to measure quality of test cases. \\
+\textbf{T.1} & 1 & The versions of package dependencies are specified in the repository. \\
+\textbf{T.2} & 1 & The benchmark does not require any external APIs. \\
+\textbf{T.3} & 1 & The benchmark does not require any external APIs. \\
+\textbf{T.4} & 1 & The benchmark uses docker containers to isolate the environment, and the state is cleared between runs. \\
+\textbf{T.5} & 1 & The agent cannot access the host file system, and the ground truth is not accessible to the agent. \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 1 & The ground-truth patches are taken from GitHub repositories, which is verified by expert developers. \\
+\textbf{T.8} & 1 & Each task represents a real-world GitHub issue and a corresponding pull request, which are solvable by the agent. \\
+\textbf{T.9} & 1 & Pull requests from GitHub are used as ground truth, which can be considered as an Oracle solver. \\
+\textbf{T.10} & 1 & No vulnerabilities are found in the implementation of the benchmark, and the evaluation process is secure. \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark provides an open-source evaluation harness for users. \\
+\textbf{R.3} & 0 & The benchmark does not discuss measures to prevent data contamination. \\
+\textbf{R.4} & 0 & The benchmark does not discuss plans to consistently update tasks over time. \\
+\textbf{R.5} & 1 & Such a relationship is clearly stated in Section 2 of the paper. \\
+\textbf{R.6} & 1 & {The benchmark is designed to evaluate both the model and the agent framework, as discussed in Section 5 of the\\ paper.} \\
+\textbf{R.7} & 0 & The benchmark does not discuss any efforts to prevent, identify, and correct flaws. \\
+\textbf{R.8} & 0 & The benchmark does not discuss the potential impact of unavoidable flaws. \\
+\textbf{R.9} & 0 & The benchmark does not include quantitative analysis to assess the impact of unavoidable flaws. \\
+\textbf{R.10} & 0 & The report does not include any metrics about statistical significance. \\
+\textbf{R.11} & 0 & The benchmark does not provide any guidance on interpreting results with eval flaws. \\
+\textbf{R.12} & 0 & The benchmark does not report results of non-AI baselines. \\
+\textbf{R.13} & 0 & The benchmark does not report results of trivial agents. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of $\\tau$-Bench (\href{https://arxiv.org/pdf/2406.12045}{paper}, \href{https://github.com/sierra-research/tau-bench}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.a.1} & 1 & The benchmark uses minimal expressions for substring matching, which is robust to variations in the input. \\
+\textbf{O.a.2} & 1 & The benchmark uses minimal expressions for substring matching, which is robust to redundant words in the input. \\
+\textbf{O.b.1} & 0 & The benchmark does not specify how negation modifiers are handled, which may lead to incorrect evaluations. \\
+\textbf{O.b.2} & 0 & {The benchmark does not specify how it handles systematic listing of all possible answers, which may lead to\\ incorrect evaluations.} \\
+\textbf{O.b.3} & 0 & A part of tasks has empty ground truth, which may lead to guessing. \\
+\textbf{O.g.1} & 1 & The database after successful completion of a task is unique and includes all states. \\
+\textbf{O.g.2} & 1 & The state of the database is the only environment state, and it is checked for both relevant and irrelevant parts. \\
+\textbf{O.g.3} & 0 & A part of tasks has empty ground truth, which may lead to trivial state modifications. \\
+\textbf{T.1} & 1 & The benchmark does not use external tools. \\
+\textbf{T.2} & 1 & The benchmark does not use external APIs. \\
+\textbf{T.3} & 1 & The benchmark does not use external APIs. \\
+\textbf{T.4} & 1 & Residual data or state are fully cleared between runs by re-initializing the database. \\
+\textbf{T.5} & 1 & Agents has no access to the file system. \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 1 & As shown in Section 4 of the paper, the ground truth is manually verified. \\
+\textbf{T.8} & 1 & As shown in Section 4 of the paper, each task is verified to be solvable by the agent. \\
+\textbf{T.9} & 1 & The benchmark provides a reference task solution that can be used as an Oracle solver. \\
+\textbf{T.10} & 1 & No vulnerabilities are found in the implementation of the benchmark, and the evaluation process is secure. \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark provides an open-source evaluation harness for users. \\
+\textbf{R.3} & 0 & The benchmark does not discuss measures to prevent data contamination. \\
+\textbf{R.4} & 0 & The report does not discuss plans to consistently update tasks over time. \\
+\textbf{R.5} & 1 & Such a relationship is clearly stated in Section 3 of the paper. \\
+\textbf{R.6} & 1 & {As discussed in Section 5 of the paper, the benchmark is designed to evaluate both the model and the agent\\ framework.} \\
+\textbf{R.7} & 1 & Appendix A of the paper shows the efforts taken to detect annotation errors. \\
+\textbf{R.8} & 1 & Section 6 discusses the potential impact of unavoidable flaws, although these discussions are not sufficient. \\
+\textbf{R.9} & 0 & The report does not include quantitative analysis to assess the impact of unavoidable flaws. \\
+\textbf{R.10} & 0 & The report does not include any metrics about statistical significance. \\
+\textbf{R.11} & 0 & The report does not provide any guidance on interpreting results with eval flaws. \\
+\textbf{R.12} & 0 & The report does not report results of non-AI baselines. \\
+\textbf{R.13} & 0 & The report does not report results of trivial agents. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of MLE-Bench (\href{https://arxiv.org/pdf/2410.07095}{paper}, \href{https://github.com/openai/mle-bench/tree/main}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.I.1} & 1 & As described in Section 2.2, the benchmark uses leaderboard positions as a metric, which is not easily exploitable. \\
+\textbf{T.1} & 0 & The prompt does not specify the versions of important tools, such as Python and Pytorch. \\
+\textbf{T.2} & 1 & The benchmark does not require any external APIs, and all required tools are accessible to the agent. \\
+\textbf{T.3} & 1 & {The benchmark does not require any external APIs, and the evaluation process does not depend on any external\\ resources.} \\
+\textbf{T.4} & 1 & There are no residual data or state between runs, as the evaluation is performed in a clean environment. \\
+\textbf{T.5} & 1 & {The submission process is isolated from the agent's environment, and the agent cannot access any ground truth\\ information.} \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 1 & {The benchmark uses ground truth data from Kaggle, which is a widely used and reliable source for benchmark\\ datasets.} \\
+\textbf{T.8} & 1 & The benchmark uses previous challenges from Kaggle, which are proven to be solvable with ML algorithms. \\
+\textbf{T.9} & 1 & Any solution on Kaggle can be considered an Oracle solver. \\
+\textbf{T.10} & 1 & No vulnerabilities are found in the implementation of the benchmark, and the evaluation process is secure. \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark provides an open-source evaluation harness for users. \\
+\textbf{R.3} & 1 & The benchmark design experiments to measure data contamination and agent plagiarism. \\
+\textbf{R.4} & 1 & Future plan on regularly update the benchmark with new Kaggle challenges is discussed in Section 6 \\
+\textbf{R.5} & 1 & Such a relationship is clearly stated in Section 2. \\
+\textbf{R.6} & 1 & As shown in Section 3, the benchmark is designed to evaluate both the model and the agent framework. \\
+\textbf{R.7} & 1 & The paper discusses the efforts taken to detect cheating in Appendix A.5. \\
+\textbf{R.8} & 1 & The paper discusses the potential impact of unavoidable flaws in Section 4. \\
+\textbf{R.9} & 1 & The paper includes quantitative analysis to assess the impact of unavoidable flaws in Appendix A.5. \\
+\textbf{R.10} & 1 & The paper reports metrics about statistical significance in Section 3.3. \\
+\textbf{R.11} & 1 & No significant flaws are found in the evaluation process. \\
+\textbf{R.12} & 1 & The benchmark directly compares the performance of agents with human experts in the Kaggle challenge submissions. \\
+\textbf{R.13} & 0 & The benchmark does not report results of trivial agents. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of WebArena (\href{https://arxiv.org/pdf/2307.13854}{paper}, \href{https://github.com/web-arena-x/webarena}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.a.1} & 1 & {As discussed in Section 3.2 of the paper, the benchmark expects the response to follow a standardized format,\\ which is robust to variations in the input.} \\
+\textbf{O.a.2} & 1 & {As discussed in Section 3.2 of the paper, the benchmark expects the response to follow a standardized format,\\ which is robust to redundant words in the input.} \\
+\textbf{O.b.1} & 0 & The benchmark does not handle negation modifiers, which may lead to incorrect evaluations. \\
+\textbf{O.b.2} & 0 & {The benchmark does not specify how it handles systematic listing of all possible answers, which may lead to\\ incorrect evaluations.} \\
+\textbf{O.b.3} & 0 & The ground truth is NULL for a part of tasks, which may lead to guessing. \\
+\textbf{O.c.1} & 1 & The accuracy of the judge is quantitatively evaluated in Appendix A.8 of the paper. \\
+\textbf{O.c.2} & 0 & {The benchmark does not handle adversarial inputs and reward hacking in LLM-as-a-Judge, which may lead to incorrect\\ evaluations.} \\
+\textbf{O.g.1} & 1 & The ground truth includes all states achievable after success, as discussed in Section 3.2 of the paper. \\
+\textbf{O.g.2} & 0 & {The state check only considers relevant states (e.g., achieved by using a locator as discussed in Section 3.2),\\ which may lead to incorrect evaluations.} \\
+\textbf{O.g.3} & 1 & {As demonstrated in Section 3.2 of the paper, the ground truth is a modification of the underlying database, which\\ is complex enough to prevent trivial state modifications.} \\
+\textbf{T.1} & 1 & The benchmark does not use tools that require version specification. \\
+\textbf{T.2} & 0 & {The benchmark requires an external API (e.g., a clone of Reddit website) that is not can be inaccessible to agents\\ during evaluation due to rate limit.} \\
+\textbf{T.3} & 0 & {The evaluation process does not handle errors appropriately if the API becomes inaccessible, which may lead to\\ incorrect evaluations.} \\
+\textbf{T.4} & 1 & The benchmark uses docker containers to isolate the environment, and the state is cleared between runs. \\
+\textbf{T.5} & 1 & The agent has no access to the file system where the ground truth is stored. \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 0 & {As mentioned in Section 3.2, the ground truth is annotated by two human annotators. However, there isn't a\\ mechanism to verify or guarantee the correctness of the annotations.} \\
+\textbf{T.8} & 0 & The ambiguity of the tasks is not fully verified or tested, which may lead to incorrect evaluations. \\
+\textbf{T.9} & 0 & The benchmark does not include an Oracle solver that can automatically solve all tasks. \\
+\textbf{T.10} & 0 & A do-nothing agent can pass 4.4% of the tasks. These tasks use N/A as the ground truth. \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark provides an open-source evaluation harness for users. \\
+\textbf{R.3} & 0 & The benchmark does not discuss measures to prevent data contamination. \\
+\textbf{R.4} & 0 & The benchmark does not discuss plans to consistently update tasks over time. \\
+\textbf{R.5} & 1 & Such a relationship is clearly stated in Section 2.1 of the paper. \\
+\textbf{R.6} & 1 & As shown in Section 5, the benchmark is designed to evaluate LLM models. \\
+\textbf{R.7} & 1 & Efforts to evaluate LLM-as-a-Judge are discussed in Appendix A.8 of the paper. \\
+\textbf{R.8} & 0 & The report does not discuss the potential impact of unavoidable flaws. \\
+\textbf{R.9} & 0 & The report does not include quantitative analysis to assess the impact of unavoidable flaws. \\
+\textbf{R.10} & 0 & The report does not include any metrics about statistical significance. \\
+\textbf{R.11} & 0 & The report does not provide any guidance on interpreting results with eval flaws. \\
+\textbf{R.12} & 1 & The human performance is reported in appendix A.5. \\
+\textbf{R.13} & 0 & The report does not report results of trivial agents. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of GAIA (\href{https://arxiv.org/pdf/2311.12983}{paper}, \href{https://huggingface.co/gaia-benchmark}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.h.1} & 1 & {As discussed in Section 3.2 of the paper, the specific format required for the answer is provided in the task\\ description.} \\
+\textbf{O.h.2} & 1 & The ground truth is complex enough to prevent trivial guessing. \\
+\textbf{T.1} & 0 & The version of tools (e.g., Python and website) is not specified in the paper. \\
+\textbf{T.2} & 0 & The rate limit of the API is not specified in the paper, which may lead to incorrect evaluations. \\
+\textbf{T.3} & 0 & {The benchmark does not provide a reference harness for handling errors, which may lead to inconsistent evaluations\\ across different users.} \\
+\textbf{T.4} & 1 & The benchmark does not modify the environment state. \\
+\textbf{T.5} & 1 & Agents have no access to the ground truth information. \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 1 & The data annotation process contains a verification step, as discussed in Section 3.4 of the paper. \\
+\textbf{T.8} & 1 & The data annotation process contains a verification step, as discussed in Section 3.4 of the paper. \\
+\textbf{T.9} & 0 & The benchmark does not include an Oracle solver that can automatically solve all tasks. \\
+\textbf{T.10} & 1 & No vulnerabilities are found in the implementation of the benchmark. \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on HuggingFace. \\
+\textbf{R.2} & 0 & The benchmark does not provide an open-source evaluation harness for users. \\
+\textbf{R.3} & 0 & The benchmark does not contain measures to prevent data contamination. \\
+\textbf{R.4} & 0 & The report does not discuss plans to consistently update tasks over time. \\
+\textbf{R.5} & 1 & Such a relationship is clearly stated in Section 3 of the paper. \\
+\textbf{R.6} & 1 & As discussed in Section 3 of the paper, the benchmark is designed to evaluate LLM models. \\
+\textbf{R.7} & 1 & Section 5 of the paper discusses the efforts, including comparing evaluation with or without human in the loop. \\
+\textbf{R.8} & 1 & {Section 6 discusses the potential impact of unavoidable flaws, such as a wrong reasoning trace resulting in a\\ correct answer.} \\
+\textbf{R.9} & 0 & The report does not include quantitative analysis to assess the impact of unavoidable flaws. \\
+\textbf{R.10} & 0 & The report does not include any metrics about statistical significance. \\
+\textbf{R.11} & 0 & The report does not provide any guidance on interpreting results with eval flaws. \\
+\textbf{R.12} & 1 & Human performance is reported in Section 4 of the paper. \\
+\textbf{R.13} & 1 & The report includes results of search engine, which can be considered a trivial agent. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of OSWorld (\href{https://arxiv.org/pdf/2404.07972}{paper}, \href{https://github.com/xlang-ai/OSWorld}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.g.1} & 1 & {As discussed in Section 3.2 of the paper, the ground truth is verified to include all states that can be achieved\\ after a successful task completion.} \\
+\textbf{O.g.2} & 0 & {The state check only verifies the relevant states for the tasks. Agents can potentially perform extra harmful\\ actions that are not checked by the ground truth.} \\
+\textbf{O.g.3} & 1 & {As demonstrated in Section 3.2 of the paper, the ground truth involves complex state changes to a software or\\ website.} \\
+\textbf{T.1} & 1 & {No external tools are used in the benchmark. Versions of the environment are clearly specified in the README file\\ of the repository.} \\
+\textbf{T.2} & 1 & No external APIs are used in the benchmark. \\
+\textbf{T.3} & 1 & No external APIs are used in the benchmark. \\
+\textbf{T.4} & 1 & {The benchmark uses virtual machines to run the tasks, which ensures that all residual data or state are cleared\\ between runs.} \\
+\textbf{T.5} & 1 & Agents and ground truth are isolated from each other via virtual machines. \\
+\textbf{T.6} & 0 & The benchmark checks for HTML selectors (like class names or page titles) on live web pages. \\
+\textbf{T.7} & 1 & As discussed in Section 3.2 of the paper, the ground truth is verified for correctness by human experts. \\
+\textbf{T.8} & 1 & As discussed in Section 3.2 of the paper, each task is verified to be solvable by human experts. \\
+\textbf{T.9} & 0 & The benchmark does not include an Oracle solver that can automatically solve all tasks. \\
+\textbf{T.10} & 1 & No vulnerabilities are present in the implementation of the benchmark. \\
+\textbf{R.1} & 1 & The benchmark is fully open-sourced, as the code is available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark offers an open-source evaluation harness for users. \\
+\textbf{R.3} & 0 & The benchmark does not include measures to prevent data contamination. \\
+\textbf{R.4} & 0 & The report does not include measures or plans to consistently update tasks over time. \\
+\textbf{R.5} & 1 & Such a relationship is clearly stated in Section 2 of the paper. \\
+\textbf{R.6} & 1 & As discussed in Section 2 of the paper, the evaluation subject is agent frameworks. \\
+\textbf{R.7} & 1 & {As discussed in Section 3.2 of the paper, the benchmark uses additional manual verification steps to prevent,\\ identify, and correct flaws.} \\
+\textbf{R.8} & 0 & Safety issues of agents are discussed in Section 7 of the paper. \\
+\textbf{R.9} & 0 & No quantitative analysis to assess the impact of unavoidable flaws is included in the report. \\
+\textbf{R.10} & 0 & The report does not include metrics about statistical significance. \\
+\textbf{R.11} & 0 & The report does not provide guidance on interpreting results with eval flaws. \\
+\textbf{R.12} & 1 & Human performance is reported in Section 3.4 of the paper. \\
+\textbf{R.13} & 0 & The report does not include results of trivial agents. \\
+\bottomrule
+\end{longtblr}
+}
+{\scriptsize
+\begin{longtblr}[
+    caption = {Assessment Report of KernelBench (\href{https://arxiv.org/pdf/2502.10517}{paper}, \href{https://github.com/ScalingIntelligence/KernelBench/tree/main}{code})},
+    label = {tab:sources} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+Check & Score & Reason \\
+\midrule
+\textbf{O.e.1} & 0 & The fuzzer does not address potential edge cases, such as empty inputs. \\
+\textbf{O.e.2} & 0 & {Although the data type is specified, the fuzzer does not test different memory layouts, such as tensors with\\ non-contiguous memory layouts.} \\
+\textbf{O.e.3} & 0 & {The fuzzer uses uniform sampling to generate inputs, which may not be sensitive to the code under testing. For\\ example, the fuzzer may not generate positive inputs that trigger the `relu` function in the `torch` library.} \\
+\textbf{T.1} & 0 & The CUDA version is not specified in the default prompt. \\
+\textbf{T.2} & 1 & External APIs are not required for the evaluation of the benchmark. \\
+\textbf{T.3} & 1 & External APIs are not required for the evaluation of the benchmark. \\
+\textbf{T.4} & 1 & Kernels are evaluated in separate processes, and the state is cleared between runs. \\
+\textbf{T.5} & 0 & {The ground-truth kernel is executed first and in the same process as the agent. This may lead to the agent\\ accessing the ground-truth results by accessing out-of-bound memory.} \\
+\textbf{T.6} & 1 & The environment setup is static and does not change over time. \\
+\textbf{T.7} & 1 & The ground-truth kernel is provided by PyTorch, which is a widely used library for deep learning. \\
+\textbf{T.8} & 1 & The implementation from PyTorch is a proof of concept. \\
+\textbf{T.9} & 1 & The Oracle solver is PyTorch implementation. \\
+\textbf{T.10} & 1 & No vulnerabilities are found in the implementation of the benchmark. \\
+\textbf{R.1} & 1 & The benchmark is open-sourced and available on GitHub. \\
+\textbf{R.2} & 1 & The benchmark provides an open-source evaluation harness for users. \\
+\textbf{R.3} & 0 & The benchmark does not discuss measures to prevent data contamination. \\
+\textbf{R.4} & 0 & The benchmark does not discuss plans to consistently update tasks over time. \\
+\textbf{R.5} & 1 & Section 3 clearly states such a relationship. \\
+\textbf{R.6} & 1 & Section 5 clearly states that the evaluation subjective of the benchmark is LLM models. \\
+\textbf{R.7} & 1 & {Appendix B.2 describes the efforts taken to prevent, identify, and correct flaws, although these efforts are not\\ sufficient.} \\
+\textbf{R.8} & 1 & {Appendix B.2 includes qualitative discussions of the potential impact of unavoidable flaws, although these\\ discussions are not sufficient.} \\
+\textbf{R.9} & 1 & {Appendix B.2 includes quantitative analysis to assess the impact of unavoidable flaws, although these analyses are\\ not sufficient.} \\
+\textbf{R.10} & 0 & The benchmark does not report any metrics about statistical significance. \\
+\textbf{R.11} & 0 & The benchmark does not provide any guidance on interpreting results with eval flaws. \\
+\textbf{R.12} & 0 & The benchmark does not report results of non-AI baselines. \\
+\textbf{R.13} & 0 & The benchmark does not report results of trivial agents. \\
+\bottomrule
+\end{longtblr}
+}

@@ -1,0 +1,66 @@
+\section{Related Work} \label{sec:rel-word}
+
+\minihead{Assessing AI Benchmarks}
+Benchmarks are fundamental in AI research and practice, serving as key tools for 
+measuring progress and identifying potential risks \cite{fei2022searching,usaisi}. 
+However, maintaining benchmark quality remains a persistent challenge. 
+To address this, prior studies have assessed various dimensions of AI benchmarks, 
+including label quality and quantity \cite{dorner2024don,dorner2024limits}, 
+standardized evaluation protocols \cite{mcintosh2024inadequacies}, construct 
+validity \cite{raji2ai,eriksson2025can}, data contamination \cite{zhou2023don}, 
+reproducibility \cite{von2022evaluate}, and practical usage \cite{hardy2025more}. 
+Even high-profile benchmarks, such as ImageNet \cite{deng2009imagenet}, have 
+faced issues related to data bias and label noise \cite{tsipras2020imagenet}. 
+With the advancement of large language models (LLMs), recent work has proposed best 
+practices for developing general or code-oriented benchmarks \cite{reuelbetterbench,
+cao2025should}. Although these existing studies provide important insights to 
+our analysis, they primarily focused on multiple-choice or generative tasks that 
+do not require multistep reasoning, which present fewer ambiguities and 
+complexities than complex agentic benchmarks.
+
+\minihead{Benchmarking of AI Agents}
+Prior work has proposed agentic benchmarks across various domains, including 
+coding \cite{jimenez2024swe,miserendino2025swe,li2023can,ouyang2025kernelbench}, 
+interacting with environments for a predefined target \cite{zhouwebarena,
+xie2024osworld,yaotau}, solving math problems \cite{glazer2024frontiermath,
+lightman2023let}, and others \cite{chan2024mle,zhang2024cybench,mialon2023gaia,
+vidgen2024introducing}. 
+These tasks typically emulate real-world challenge resolution, involving 
+non-categorical outputs and multistep execution. Evaluating AI 
+agents in these tasks introduces a more complex design and implementation than 
+traditional benchmarks, including handling dynamic interactions between 
+an agent and the environment and grading unstructured responses, which increases 
+the difficulty in ensuring rigorous evaluation.
+
+% To successfully resolve 
+% challenges in these benchmarks, agents need to write code \cite{jimenez2024swe,miserendino2025swe,li2023can,zhang2024cybench,chan2024mle,
+% mialon2023gaia}, execute commands to manipulate environment states correctly 
+% \cite{yaotau,zhouwebarena}, answer questions after multiple reasoning steps
+% \cite{mialon2023gaia,glazer2024frontiermath,lightman2023let}, or retrieve required 
+% information \cite{zhouwebarena,yaotau,zhang2024cybench}. 
+
+
+% Due to the importance and complexity of benchmarking AI agents, prior work 
+% proposed various guidelines and frameworks for practical and standardized 
+% evaluation \cite{ukaisi,openai-preparedness,metr,metr-protocol}. These work 
+% focused on a standardized evaluation harness \cite{ukaisi}, responsible 
+% deployment of large-scale models \cite{openai-preparedness}, and evaluating 
+% realistic capabilities of AI agents \cite{metr,metr-protocol}. However, the 
+% rigor of the evaluation in agentic benchmarks is not systematically analyzed, 
+% resulting in a gap between the measured performance and the actual capabilities
+% of AI agents.
+
+\minihead{Issues in Evaluating AI Agents} \label{sec:prior-issues}
+Existing analyses have identified evaluation issues in individual agentic 
+benchmarks \cite{kapoor2024ai,pourreza2023evaluating,key,lange2025ai,utboost}. 
+In terms of the outcome validity, \citet{key} found that implicit assumptions on 
+the answer formats lead to performance underestimation by 5.3\%. \citet{utboost} found that agents can pass evaluations without 
+generating correct patches for 7.7\% of tasks in the \swebench-Lite and 5.2\% of 
+tasks in the \swebench-Verified. In addition, prior analysis found 
+that the annotation noise in \birdbench significantly affects the accuracy of 
+performance evaluation \cite{pourreza2023evaluating,wretblad2024understanding}.
+In terms of task validity, the rate limit of the websites implemented in \webarena prevented agents from 
+resolving challenges \cite{kapoor2024ai}. Furthermore, \citet{lange2025ai} 
+identified flaws in the grading of \kernelbench that allow agents to bypass 
+correctness checks. However, none of them develops an actionable and systematic 
+guideline to assess agentic benchmarks.

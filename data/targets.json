@@ -1,0 +1,65 @@
+{
+    "SWE-Lancer": {
+      "_repo_url": "https://github.com/openai/frontier-evals/tree/main/project/swelancer",
+      "_paper_url": "https://arxiv.org/pdf/2502.12115",
+      "O.d.1": 1, "O.d.2": 0, "O.f.2": 1, "O.f.3": 0, 
+      "T.1": 1, "T.2": 1, "T.3": 1, "T.4": 1, "T.5": 0, "T.6": 1, "T.7": 1, "T.8": 1, "T.9": 1, "T.10": 0, 
+      "R.1": 1, "R.2": 1, "R.3": 1, "R.4": 0, "R.5": 1, "R.6": 1, "R.7": 1, "R.8": 1, "R.9": 0, "R.10": 0, "R.11": 0, "R.12": 0, "R.13": 0
+    },
+    "Bird-Bench": {
+      "_repo_url": "https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird",
+      "_paper_url": "https://arxiv.org/pdf/2305.03111",
+      "O.d.1": 1, "O.d.2": 0, "O.f.2": 0, "O.f.3": 1,
+      "T.1": 1, "T.2": 1, "T.3": 1, "T.4": 0, "T.5": 1, "T.6": 1, "T.7": 0, "T.8": 0, "T.9": 0, "T.10": 1,
+      "R.1": 1, "R.2": 1, "R.3": 1, "R.4": 0, "R.5": 1, "R.6": 1, "R.7": 0, "R.8": 0, "R.9": 0, "R.10": 0, "R.11": 0, "R.12": 1, "R.13": 0
+    },
+    "CyBench": {
+      "_repo_url": "https://github.com/andyzorigin/cybench",
+      "_paper_url": "https://arxiv.org/pdf/2408.08926",
+      "O.h.1": 1, "O.h.2": 1,
+      "T.1": 1, "T.2": 1, "T.3": 1, "T.4": 1, "T.5": 1, "T.6": 1, "T.7": 1, "T.8": 1, "T.9": 1, "T.10": 1,
+      "R.1": 1, "R.2": 1, "R.3": 0, "R.4": 0, "R.5": 1, "R.6": 1, "R.7": 1, "R.8": 1, "R.9": 1, "R.10": 0, "R.11": 1, "R.12": 1, "R.13": 0
+    },
+    "SWE-bench-Verified": {
+      "_repo_url": "https://github.com/SWE-bench/SWE-bench",
+      "_paper_url": "https://arxiv.org/pdf/2310.06770",
+      "O.d.1": 1, "O.d.2": 0,
+      "T.1": 1, "T.2": 1, "T.3": 1, "T.4": 1, "T.5": 1, "T.6": 1, "T.7": 1, "T.8": 1, "T.9": 1, "T.10": 1,
+      "R.1": 1, "R.2": 1, "R.3": 0, "R.4": 0, "R.5": 1, "R.6": 1, "R.7": 0, "R.8": 0, "R.9": 0, "R.10": 0, "R.11": 0, "R.12": 0, "R.13": 0
+    },
+    "tau-Bench": {
+      "_repo_url": "https://github.com/sierra-research/tau-bench",
+      "_paper_url": "https://arxiv.org/pdf/2406.12045",
+      "O.a.1": 1, "O.a.2": 1, "O.b.1": 0, "O.b.2": 0, "O.b.3": 0, "O.g.1": 1, "O.g.2": 1, "O.g.3": 0,
+      "T.1": 1, "T.2": 1, "T.3": 1, "T.4": 1, "T.5": 1, "T.6": 1, "T.7": 1, "T.8": 1, "T.9": 1, "T.10": 1,
+      "R.1": 1, "R.2": 1, "R.3": 0, "R.4": 0, "R.5": 1, "R.6": 1, "R.7": 1, "R.8": 1, "R.9": 0, "R.10": 0, "R.11": 0, "R.12": 0, "R.13": 0
+    },
+    "MLE-Bench": {
+      "_repo_url": "https://github.com/openai/mle-bench/tree/main",
+      "_paper_url": "https://arxiv.org/pdf/2410.07095",
+      "O.I.1": 1,
+      "T.1": 0, "T.2": 1, "T.3": 1, "T.4": 1, "T.5": 1, "T.6": 1, "T.7": 1, "T.8": 1, "T.9": 1, "T.10": 1,
+      "R.1": 1, "R.2": 1, "R.3": 1, "R.4": 1, "R.5": 1, "R.6": 1, "R.7": 1, "R.8": 1, "R.9": 1, "R.10": 1, "R.11": 1, "R.12": 1, "R.13": 0
+    },
+    "WebArena": {
+      "_repo_url": "https://github.com/web-arena-x/webarena",
+      "_paper_url": "https://arxiv.org/pdf/2307.13854",
+      "O.a.1": 1, "O.a.2": 1, "O.b.1": 0, "O.b.2": 0, "O.b.3": 0, "O.c.1": 1, "O.c.2": 0, "O.g.1": 1, "O.g.2": 0, "O.g.3": 1,
+      "T.1": 1, "T.2": 0, "T.3": 0, "T.4": 1, "T.5": 1, "T.6": 1, "T.7": 0, "T.8": 0, "T.9": 0, "T.10": 0,
+      "R.1": 1, "R.2": 1, "R.3": 0, "R.4": 0, "R.5": 1, "R.6": 1, "R.7": 1, "R.8": 0, "R.9": 0, "R.10": 0, "R.11": 0, "R.12": 1, "R.13": 0
+    },
+    "OSWorld": {
+      "_repo_url": "https://github.com/xlang-ai/OSWorld",
+      "_paper_url": "https://arxiv.org/pdf/2404.07972",
+      "O.g.1": 1, "O.g.2": 0, "O.g.3": 1,
+      "T.1": 1, "T.2": 1, "T.3": 1, "T.4": 1, "T.5": 1, "T.6": 0, "T.7": 1, "T.8": 1, "T.9": 0, "T.10": 1,
+      "R.1": 1, "R.2": 1, "R.3": 0, "R.4": 0, "R.5": 1, "R.6": 1, "R.7": 1, "R.8": 0, "R.9": 0, "R.10": 0, "R.11": 0, "R.12": 1, "R.13": 0
+    },
+    "KernelBench": {
+      "_repo_url": "https://github.com/ScalingIntelligence/KernelBench/tree/main",
+      "_paper_url": "https://arxiv.org/pdf/2502.10517",
+      "O.e.1": 0, "O.e.2": 0, "O.e.3": 0,
+      "T.1": 0, "T.2": 1, "T.3": 1, "T.4": 1, "T.5": 0, "T.6": 1, "T.7": 1, "T.8": 1, "T.9": 1, "T.10": 1,
+      "R.1": 1, "R.2": 1, "R.3": 0, "R.4": 0, "R.5": 1, "R.6": 1, "R.7": 1, "R.8": 1, "R.9": 1, "R.10": 0, "R.11": 0, "R.12": 0, "R.13": 0
+    }
+  }

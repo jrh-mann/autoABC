@@ -1,0 +1,65 @@
+% \begin{table}[t]
+%     \centering
+%     \caption{A list of widely used agentic benchmarks.}
+%     \label{tab:all-benchmarks}
+%     \begin{tabular}{ccl}
+
+\section{Details of Benchmark Collection and Selection} \label{sec:benchmark-list}
+
+We first surveyed the model release blog posts, technical reports, and paper of 
+top AI provider, including OpenAI, Anthropic, Google, Meta, xAI, Mistral, 
+DeepSeek, and Amazon. Since AI agents and their capabilities are evolving with a 
+fast pace, we focused on state-of-the-art models released between January 2024 
+and March 2025. Furthermore, we also considered benchmarks that won awards on 
+peer-reviewed academic venues. As shown in Table \ref{tab:all-bench}, we 
+identified 78 benchmarks.
+
+Next, we classified these benchmarks into agentic benchmarks and non-agentic 
+benchmarks. An agentic benchmark mush involve tasks that require multistep 
+reasoning or command execution, which excludes fact-seeking questions, such as 
+simpleQA \cite{wei2024measuring}, straightforward question-answer (QA) datasets, 
+such as MMMLU \cite{hendrycks2020measuring}, and straightforward programming 
+tasks, such as MBPP \cite{austin2021program} and HumanEval 
+\cite{chen2021evaluating}. As shown in Table \ref{tab:all-bench}, we collected
+25 agentic benchmarks.
+
+Finally, we categorize these agentic benchmarks based on their evaluated 
+capabilities, evaluation methods, and open-source availability (Table
+\ref{tab:all-benchmarks}). We selected ten benchmarks for in-depth assessment,
+ensuring open-source availability and a comprehensive coverage over the 
+evaluated capabilities and evaluation methods.
+
+\input{figures/tab_benchmark_collection.tex}
+
+{\scriptsize
+\begin{longtblr}[
+    caption = {Collected agentic benchmarks. Assessed benchmarks are highlighted in blue.},
+    label = {tab:all-benchmarks} ]{colspec={Q[c]Q[c]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+        \toprule
+        \textbf{Benchmark}                          & \textbf{Evaluated Capability} & \textbf{Evaluation Design} \\
+        \midrule
+        \textcolor{blue}{\swebench} \cite{jimenez2024swe}             & Software Engineering      & Unit Testing \\
+        \textcolor{blue}{\swelancer} \cite{miserendino2025swe}        & Software Engineering      & End-to-end Testing \\
+        \textcolor{blue}{\kernelbench} \cite{ouyang2025kernelbench}   & Software Engineering      & Fuzz Testing \\
+        \textcolor{blue}{\birdbench} \cite{li2023can}                 & Software Engineering      & End-to-end Testing \\
+        Aider-Edit \cite{aider-edit}                & Software Engineering      & Unit Testing \\
+        Codeforces \cite{quan2025codeelo}           & Software Engineering      & Unit Testing \\
+        LiveBench Coding \cite{white2024livebench}  & Software Engineering      & Unit Testing \\
+        Aider-Polyglot \cite{aider-polyglot}        & Software Engineering      & Unit Testing \\
+        % \textcolor{blue}{\mathbench} \cite{lightman2023let}           & Math Problem-solving      & Answer Match \\
+        % MathVista \cite{lu2023mathvista}            & Math Problem-solving      & Answer Match \\
+        FrontierMath\thanks{No open-source access} \cite{glazer2024frontiermath}  & Challenging Math Problem-solving      & Answer Match \\
+        % AIME'2024 \cite{AIME-2024}                  & Math Problem-solving      & Answer Match \\
+        % CNMO'2024 \cite{cnmo-2024}                  & Math Problem-solving      & Unknown \\
+        % HiddenMath \cite{gemini-2.0}                & Math Problem-solving      & Unknown \\
+        \textcolor{blue}{\mlebench} \cite{chan2024mle}                & ML Engineering            & Quality Measure \\
+        RE-bench \cite{wijk2024re}                  & ML Engineering            & Quality Measure \\
+        \textcolor{blue}{\taubench} \cite{yaotau}                     & Environment Interaction   & Substring Matching, State Matching \\
+        \textcolor{blue}{\webarena} \cite{zhouwebarena}               & Environment Interaction   & \makecell[l]{Whole String Matching, Substring Matching,\\LLM-as-a-Judge, State Matching} \\
+        \textcolor{blue}{OSWorld} \cite{xie2024osworld}               & Environment Interaction   & State Matching \\
+        WebVoyager \cite{he2024webvoyager}          & Environment Interaction   & LLM-as-a-Judge \\
+        \textcolor{blue}{\cybench} \cite{zhang2024cybench}            & Cybersecurity             & Answer Matching \\
+        \textcolor{blue}{\gaia} \cite{mialon2023gaia}                 & General Assistant         & Answer Matching \\
+        \bottomrule
+\end{longtblr}
+}

@@ -1,0 +1,116 @@
+\section{An Example of Rigorous Benchmark Reporting}
+\label{sec:app-example}
+
+In this section, we present a modified reporting example based on \birdbench to 
+demonstrate benchmark reporting that fulfills all the criteria outlined in 
+Figure \ref{fig:report}. \birdbench is a benchmark for evaluating agents' 
+capability to translate a natural language query to a SQL query.
+
+\minihead{R.1} Is fully or at least partially open-sourced.
+
+\textbf{Example}: We released the training and validation dataset of \birdbench 
+at \url{https://bird-bench.github.io/}.
+
+
+\minihead{R.2} Offers an open-source evaluation harness for users.
+
+\textbf{Example}: We released the harness to evaluation agents on \birdbench at 
+\url{https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird}.
+
+\minihead{R.3} Includes measures to prevent data contamination, such as a
+private, held-out test set.
+
+\textbf{Example}: We keep a private held-out test set to avoid potential data 
+contamination. Request to evaluate agents on this test set can be submitted at 
+\url{https://bird-bench.github.io/}.
+
+\minihead{R.4} Includes measures or plans to consistently update challenges over
+time to avoid overfitting.
+
+\textbf{Example}: We plan to consistently update the database and natural 
+language queries to reflect the real-world queries and avoid overfitting. Our 
+updates will be available at \url{https://bird-bench.github.io/}.
+
+\minihead{R.5} Clearly states the relationship between the agent capabilities it
+aims to evaluate and the constructs or outcomes it measures.
+
+\textbf{Example}: \birdbench evaluates agents' capabilities to serve as a 
+database interface to translate natural language queries into executable SQL 
+queries. To achieve that, \birdbench provides agents with a natural language
+query, the database schema, and SQL-related domain knowledge, and challenges 
+agents to write a SQL query that can be executed to return correct answers.
+
+\minihead{R.6} Clearly states the evaluation subjective of the benchmark (e.g., a
+model or an agent framework).
+
+\textbf{Example}: \birdbench is designed to evaluate the capability of ML models
+as well as the performance of agent frameworks.
+
+\minihead{R.7} Describes steps taken to prevent, identify, and correct flaws.
+
+\textbf{Example}: We identify that evaluating generated SQL queries using 
+execution results have two limitations. First, tasks requiring \texttt{LIMIT}
+queries and containing ties in the data may lead to non-deterministic execution
+results. Second, manually annotated ground-truth queries may contain errors. To 
+understand and mitigate these errors, we randomly sample 500 tasks to perform
+an additional phase of verification. After verifying queries, we found 11.65\% 
+of ground-truth queries are incorrect.\footnote[4]{We used results by 
+\citet{bird-dev-errors}.}
+
+
+\minihead{R.8} Includes qualitative discussions of the potential impact of 
+unavoidable flaws.
+
+\textbf{Example}: The identified incorrect ground-truth queries and potentially
+more incorrect ground-truth queries in the test dataset can lead to estimation
+errors of the agent performance and incorrect rankings of agents.
+
+\minihead{R.9} Includes quantitative analysis to assess the impact of unavoidable
+flaws (e.g., noise of ground truth).
+
+\textbf{Example}: We build our quantitative analysis based on the normality 
+assumption. Specifically, suppose the number of data in the test set $N$ is 
+large enough such that the true success rate ($p$) of an agent follows a normal 
+distribution with mean $\mu$ and standard deviation $\sigma$. Given the ground 
+truth's incorrectness rate of $e$ and the estimated agent success rate $p_0$ 
+(based on the imperfect ground truth), $\mu$ and $\sigma$ are calculated as
+\begin{equation*}
+    \mu = e + (1-2e)p_0; \quad
+    \sigma^2 = \mu(1-\mu) = \left(e + (1-2e)p_0\right) \left(1- e - (1-2e)p_0\right)
+\end{equation*}
+Hence, based on the normality assumption, we can derive a two-sided confidence 
+interval with confidence $\alpha$ for $p$ as follows:
+\begin{equation}
+    \mathbb{P}\left[ \mu - 1.96 \times \frac{\sigma}{\sqrt{N}} \le p \le \mu + 1.96 \times \frac{\sigma}{\sqrt{N}} \right] \ge 95\%
+\end{equation}
+
+Finally, based on the plug-in estimate (11.65\%) for the ground truth's 
+incorrectness rate, we calculate the confidence interval for the agents' 
+performance in Table \ref{tab:bird-data}.
+
+\minihead{R.10} Reports metrics about statistical significance, such as
+confidence intervals.
+
+\textbf{Example}: In additional to accuracy estimate, we also calculate 
+confidence intervals for each model in Table \ref{tab:bird-data}.
+
+\minihead{R.11} Provides guidance on interpreting results with eval flaws.
+
+\textbf{Example}: Given the potential flaws in \birdbench, we do not recommend 
+users to rely on the success rate alone for decision-making or selecting models.
+Instead, we suggest using the confidence interval of the success rate as a 
+reference.
+
+\minihead{R.12} Reports results of non-AI baselines (e.g., human experts).
+
+\textbf{Example}: We measured the performance of a SQL expert on \birdbench, 
+obtaining a success rate of 92.96\%. 
+
+\minihead{R.13} Reports results of trivial agents (e.g., one that does nothing).
+
+\textbf{Example}: We performed sanity check on our evaluation harness by 
+measuring the performance of a trivial agent that does nothing. We find that the 
+trivial agent achieves 0\% success rate, confirming the rigor of our evaluation
+implementation.
+
+\input{figures/tab_bird_bench.tex}

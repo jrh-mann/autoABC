@@ -1,0 +1,44 @@
+id,category,subcategory,question
+T.1,Task Validity,Tool,Are versions of all tools (e.g., Python) clearly specified?
+T.2,Task Validity,Tool,Are required API tools consistently accessible during evaluation?
+T.3,Task Validity,Tool,Does the evaluation process terminate or handle errors appropriately if an API becomes inaccessible?
+T.4,Task Validity,Environment,Are residual data or states fully cleared between runs?
+T.5,Task Validity,Environment,Is the agent completely isolated from any ground truth information?
+T.6,Task Validity,Environment,Is the setup frozen and reproducible (does not change over time, e.g., no live websites)?
+T.7,Task Validity,Implementation,Is the annotated ground truth verified for correctness?
+T.8,Task Validity,Implementation,Is each task verified to be solvable?
+T.9,Task Validity,Implementation,Does the benchmark include an Oracle solver that can automatically solve all challenges?
+T.10,Task Validity,Implementation,Is the implementation free of vulnerabilities that could be exploited to pass evaluations without completing tasks?
+O.a.1,Outcome Validity,Information Acquisition (Whole String),Does the matching logic consider expressions semantically equivalent to ground truth?
+O.a.2,Outcome Validity,Information Acquisition (Whole String),Does the matching logic handle redundant words used by agents?
+O.b.1,Outcome Validity,Information Acquisition (Substring),Does the matching logic handle negation modifiers used by agents?
+O.b.2,Outcome Validity,Information Acquisition (Substring),Is the matching logic robust against systematically listing all possible answers?
+O.b.3,Outcome Validity,Information Acquisition (Substring),Is the ground truth sufficiently complex to prevent guessing?
+O.c.1,Outcome Validity,Information Acquisition (LLM-as-a-Judge),Is there documented or experimental evidence of the judge's accuracy, self-consistency, and agreement with humans?
+O.c.2,Outcome Validity,Information Acquisition (LLM-as-a-Judge),Is the judge designed to resist adversarial inputs and reward hacking?
+O.d.1,Outcome Validity,Code Generation (Unit/E2E Testing),Are test cases verified for correctness and quality (e.g., by humans)?
+O.d.2,Outcome Validity,Code Generation (Unit/E2E Testing),Is the quality of test cases measured using objective metrics (e.g., code coverage, cyclomatic complexity)?
+O.e.1,Outcome Validity,Code Generation (Fuzz Testing),Does the testing address potential edge cases?
+O.e.2,Outcome Validity,Code Generation (Fuzz Testing),Does the testing ensure comprehensive coverage of all relevant input variations (types, memory layouts, ranges)?
+O.e.3,Outcome Validity,Code Generation (Fuzz Testing),Does the testing generate inputs that the code under testing is sensitive to?
+O.f.1,Outcome Validity,Code Generation (End-to-End Testing),Does the testing exercise all relevant parts of the code being tested?
+O.f.2,Outcome Validity,Code Generation (End-to-End Testing),Are safeguards in place to prevent non-deterministic ('flaky') test results?
+O.g.1,Outcome Validity,State Matching,Does the ground truth include all states achievable after success?
+O.g.2,Outcome Validity,State Matching,Does the check verify both relevant and irrelevant states for the challenge?
+O.g.3,Outcome Validity,State Matching,Is the ground truth complex enough to prevent trivial state modifications?
+O.h.1,Outcome Validity,Multistep Reasoning (Answer Matching),Are required answer formats explicitly specified in challenge descriptions?
+O.h.2,Outcome Validity,Multistep Reasoning (Answer Matching),Does the task design minimize the possibility of success by random guessing?
+O.i.1,Outcome Validity,Multistep Reasoning (Quality Measure),Are quality metrics designed to prevent exploitation (e.g., reward hacking)?
+R.1,Benchmark Reporting,Transparency & Validity,Is the benchmark fully or at least partially open-sourced?
+R.2,Benchmark Reporting,Transparency & Validity,Does it offer an open-source evaluation harness for users?
+R.3,Benchmark Reporting,Transparency & Validity,Are there measures to prevent data contamination (e.g., a private held-out test set)?
+R.4,Benchmark Reporting,Transparency & Validity,Are there measures or plans to consistently update challenges over time to avoid overfitting?
+R.5,Benchmark Reporting,Transparency & Validity,Does it clearly state the relationship between the agent capabilities it evaluates and the constructs it measures?
+R.6,Benchmark Reporting,Transparency & Validity,Does it clearly state the evaluation objective (e.g., a model or an agent framework)?
+R.7,Benchmark Reporting,Flaw Mitigation,Does it describe steps taken to prevent, identify, and correct flaws?
+R.8,Benchmark Reporting,Flaw Mitigation,Does it include qualitative discussions of the potential impact of unavoidable flaws?
+R.9,Benchmark Reporting,Flaw Mitigation,Does it include quantitative analysis to assess the impact of unavoidable flaws (e.g., noise of ground truth)?
+R.10,Benchmark Reporting,Interpretation,Does it report metrics about statistical significance, such as confidence intervals?
+R.11,Benchmark Reporting,Interpretation,Does it provide guidance on interpreting results given potential eval flaws?
+R.12,Benchmark Reporting,Interpretation,Does it report results of non-AI baselines (e.g., human experts)?
+R.13,Benchmark Reporting,Interpretation,Does it report results of trivial agents (e.g., one that does nothing)?

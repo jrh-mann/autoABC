@@ -1,0 +1,185 @@
+\section{Assessment of Agentic Benchmarks} \label{sec:results}
+In this section, we present the results of applying \name on existing agentic
+benchmarks (Table \ref{tab:benchmarks}). We first show the assessment scores 
+(Section \ref{sec:scores}) and then summarize newly identified issues with 
+quantitative results (Section \ref{sec:experiment}). Finally, with a case 
+study, we show how developers can apply \name to improve their benchmarks 
+(Section \ref{sec:revision}).
+
+\subsection{Assessment Scores} \label{sec:scores}
+
+\begin{table}[t]
+    \centering
+    \scriptsize
+    \caption{Agentic benchmarks we assessed using \name.}
+    \label{tab:benchmarks}
+    \begin{tblr}{colspec={Q[c]Q[c]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}
+        \toprule
+        Benchmark                          & Evaluated Capability & Evaluation Design \\
+        \midrule
+        \swebench \cite{jimenez2024swe}             & Software Engineering      & Unit Testing \\
+        \swelancer \cite{miserendino2025swe}        & Software Engineering      & End-to-end Testing \\
+        \kernelbench \cite{ouyang2025kernelbench}   & Software Engineering      & Fuzz Testing \\
+        \birdbench \cite{li2023can}                 & Software Engineering      & Unit Testing \\
+        \cybench \cite{zhang2024cybench}            & Cybersecurity             & Answer Matching \\
+        \mlebench \cite{chan2024mle}                & Software Engineering      & Quality Measure \\
+        % \mathbench \cite{lightman2023let}           & Math Problem-solving      & Answer Match \\
+        \gaia \cite{mialon2023gaia}                 & General Assistant         & Answer Matching \\
+        \taubench \cite{yaotau}                     & Environment Interaction   & Substring Matching, State Matching \\
+        \webarena \cite{zhouwebarena}               & Environment Interaction   & {Whole String Matching, Substring Matching, LLM-as-a-Judge, State Matching} \\
+        \osworld \cite{xie2024osworld}              & Environment Interaction   & State Matching \\
+        \bottomrule
+    \end{tblr}
+\end{table}
+
+\begin{figure}[t]
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=\textwidth]{figures/implementation_assessment.pdf}
+        \caption{Task validity.}
+        \label{fig:impl-scores}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=\textwidth]{figures/design_assessment.pdf}
+        \caption{Outcome validity.}
+        \label{fig:design-scores}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\textwidth}
+        \includegraphics[width=\textwidth]{figures/reporting_assessment.pdf}
+        \caption{Benchmark reporting.}
+        \label{fig:report-scores}
+    \end{subfigure}
+    \caption{Assessment results of selected benchmarks. We find 7 benchmarks 
+    violating task validity, 7 violating outcome validity, and all 10 with 
+    limitations in reporting.}
+    \label{fig:scores}
+\end{figure}
+
+We selected ten open-source agentic benchmarks from Table \ref{tab:all-benchmarks} to cover 
+all capability categories and evaluation methods. For each part of \name, we 
+calculated the average scores of applicable items. We present the final 
+assessment scores in Figure \ref{fig:scores}. We summarize our findings as follows.
+\begin{itemize}[leftmargin=*]
+    \item Task validity: more than half of the benchmarks exhibit 
+    implementation flaws, especially those that provide tools to agents.
+    \item Outcome validity: more than half of the benchmarks fail to address 
+    inherent limitations of the evaluation methods.
+    \item Benchmark Reporting: 80\% of the benchmarks fail to acknowledge weaknesses in their design or implementation, and none satisfies every reporting criterion.
+\end{itemize}
+% Taken together, these findings highlight the urgent need for clearer best-practice standards in the AI-agent evaluation community.
+
+\subsection{Assessment Findings} \label{sec:experiment}
+We conducted an in-depth analysis of specific issues present in each agentic 
+benchmark. In this section, we focus on discussing 4 benchmarks with newly 
+discovered issues. We defer a detailed description of all identified issues in 
+Appendix \ref{sec:app-reports} and experiment designs to \ref{sec:cases}.
+\vspace{-0.5em}
+\begin{enumerate}[leftmargin=*]
+\item \taubench relies on trivial states or substrings as ground truth, violating checks O.b.3 and O.g.3 and overestimating performance by 38\%.
+\item \taubench also allows agents to list every possible answer, violating 
+check O.b.2 and overestimating performance by 40\%.
+\item \webarena not only violates check O.b.2 but also uses an LLM-as-a-Judge 
+without validating its accuracy or consistency (check O.c.1), leading to a 
+1.4–5.2\% performance overestimate.
+\item \swelancer fails to fully isolate agents from the ground truth 
+(check T.5), allowing agents to score 100\% without solving tasks.
+\item \kernelbench omits comprehensive fuzzing for edge cases and memory 
+layouts---violating checks O.e.1 and O.e.2 and overestimatingkernel-correctness performance by approximately 31\%.
+\item \revise{In OSWorld, the task website changes have broken the HTML selectors used 
+for evaluation, leading to a 28\% performance underestimation in the \texttt{chrome} task section.}
+\end{enumerate}
+
+\minihead{\taubench}
+First, \taubench contains intentionally unsolvable tasks---38\% of the airline 
+subset and 6\% of the retail subset. Because success is defined as leaving the 
+environment unchanged, an agent that does nothing still passes evaluation of 
+these tasks. Second, 2\% of airline tasks and 3.6\% of retail tasks treat 
+verbatim database text as ground truth and grade by substring matching. 
+Therefore, an agent that dumps the entire database passes evaluations of these tasks.
+
+\minihead{\webarena}
+We identify two issues in \webarena, a benchmark for evaluating agents in 
+interacting with websites. First, its substring-matching ignores extraneous 
+content, so an agent that includes irrelevant information is considered 
+successful. Second, for tasks labeled ``N/A,'' the LLM judge that accepts an 
+empty reply as correct, enabling a trivial agent to pass.
+
+
+\miniheadNodot{\swelancer} evaluates an agent’s ability to implement features by 
+allowing it to execute Python scripts that interact directly with the file 
+system. This design grants agents unrestricted read-write access, including to 
+the benchmark’s own test files. Although these tests reside in a 
+password-protected ZIP archive, the archive’s directory structure can be 
+listed—and its contents overwritten—without knowing the password. Therefore, an 
+agent can locate the tests and replace them with a trivial assertion (e.g., 
+\texttt{assert 1 == 1}), achieving a perfect score without solving any of the 
+intended tasks.
+
+\miniheadNodot{\kernelbench}
+evaluates generated CUDA kernels with randomly generated tensors, while its 
+fuzzer varies only the tensor values, leaving shapes and memory layouts 
+unchanged. As a result, kernels that would fail under alternative configurations 
+can still pass. Re-examining the kernels reported by \citet{lange2025ai}, we 
+find that the correctness rate of kernels is overestimated by 31\%.
+
+
+\minihead{\osworld} 
+\revise{We find that in the \texttt{chrome} section of \osworld, 13/46 problems are 
+broken due to changes made to the layout, URLs, and functionality of websites 
+since the initial creation of the benchmark. This is because many evaluations 
+rely on HTML element selectors, such as classes and XPaths. These websites might 
+change their layouts after the benchmark released. In our experiments, we found 
+that this issue leads to an underestimation of the performance of UI-TAR, the
+state-of-the-art open-source agent for \osworld, by 28\% in absolute terms.}
+
+\subsection{Revising \cvebench} \label{sec:revision}
+
+\begin{figure}
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{figures/fix_db_access.pdf}
+        \caption{Before and after fixing the design for evaluating time-based 
+        SQL injection.}
+        \label{fig:fix-db-access}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{figures/fix_outbound.pdf}
+        \caption{Before and after fixing the implementation of evaluating 
+        outbound service.}
+        \label{fig:fix-outbound}
+    \end{subfigure}
+    \caption{Demonstration of using our checklist to improve the evaluation 
+    rigor of \cvebench.}
+\end{figure}
+
+In this section, we use a benchmark with representatively complex design and 
+implementation to demonstrate how \name can help improve an agentic benchmark.
+\cvebench is a benchmark for evaluating AI agents' ability to exploit real-world 
+web vulnerabilities under one- or zero-day scenarios \cite{zhu2025cve}. It 
+evaluates agents by checking whether one of the pre-specified attack targets 
+(\eg, denial of service) is accomplished. Using \name, we resolved flaws in 
+outcome and task validity.
+
+\minihead{Naive State Matching for Time-based Injections} 
+Time-based SQL injection infers the database content by measuring the latency 
+difference across multiple requests \cite{halfond2006classification}. For 
+example, an attacker can execute a 
+\texttt{SLEEP} command within a \texttt{IF} clause and measure the latency to 
+determine whether the \texttt{IF} condition is satisfied. CVE-bench measured such 
+attacks by examining whether a \texttt{SLEEP} clause appears in the database log. 
+However, containing a \texttt{SLEEP} clause in the log does not necessarily 
+indicate executions of \texttt{SLEEP}, violating check O.g.1. Consequently, 
+agents can pass the evaluation by adding \texttt{SLEEP} anywhere in the query,
+leading to performance overestimation by 32.5\%.
+
+\minihead{Ungated Outbound Server} Inducing the web application to send requests 
+to a banned outbound server is a critical cybersecurity attack 
+\cite{jabiyev2021preventing}. CVE-bench measured such attacks by checking 
+whether an outbound server has been accessed. To answer check T.9, we conducted 
+various rounds of mock execution and identified that agents consistently 
+passed the evaluation for this attack, which likely indicates a bug in the 
+implementation. Indeed, we find that agents can access the outbound server when 
+connecting from the same docker network, creating a shortcut. After denying 
+external requests on the outbound server, the success rates of agents decreased 
+by 10\% (Figure \ref{fig:fix-outbound}).

@@ -1,0 +1,87 @@
+{\scriptsize
+\begin{longtblr}[
+    caption = {Benchmarks used by major AI providers between 1 January 2024 and 18 March 2025. Duplicate benchmarks are listed only once.},
+    label = {tab:all-bench} ]{colspec={Q[c]Q[l]Q[l]Q[l]},row{1} = {font=\bfseries}, row{odd[2]} = {bg=gray!25}}% 
+\toprule
+        Benchmark & Used by & Source & Agentic  \\ 
+\midrule
+        SimpleQA & OpenAI & Introducing GPT-4.5 \cite{gpt-4.5} & \xmark  \\ 
+        SWE-Bench Verified & OpenAI & Introducing GPT-4.5 \cite{gpt-4.5} & \cmark  \\ 
+        GPQA & OpenAI & Introducing GPT-4.5 \cite{gpt-4.5} & \xmark  \\ 
+        AIME ‘24 & OpenAI & Introducing GPT-4.5 \cite{gpt-4.5} & \xmark  \\ 
+        MMMLU & OpenAI & Introducing GPT-4.5 \cite{gpt-4.5} & \xmark  \\ 
+        MMMU & OpenAI & Introducing GPT-4.5 \cite{gpt-4.5} & \xmark  \\ 
+        SWE-Lancer Diamond & OpenAI & Introducing GPT-4.5 \cite{gpt-4.5} & \cmark  \\ 
+        GAIA & OpenAI & Introducing deep research \cite{deep-research} & \cmark  \\ 
+        FrontierMath & OpenAI & OpenAI o3-mini \cite{o3-mini} & \cmark  \\ 
+        Codeforces & OpenAI & OpenAI o3-mini \cite{o3-mini} & \cmark  \\ 
+        LiveBench Coding & OpenAI & OpenAI o3-mini \cite{o3-mini} & \cmark  \\ 
+        MMLU & OpenAI & OpenAI o3-mini \cite{o3-mini} & \xmark  \\ 
+        Math & OpenAI & OpenAI o3-mini \cite{o3-mini} & \xmark  \\ 
+        MGSM & OpenAI & OpenAI o3-mini \cite{o3-mini} & \xmark  \\ 
+        OSWorld & OpenAI & Computer-Using Agent \cite{computer-user} & \cmark  \\ 
+        WebArena & OpenAI & Computer-Using Agent \cite{computer-user} & \cmark  \\ 
+        WebVoyager & OpenAI & Computer-Using Agent \cite{computer-user} & \cmark  \\ 
+        HumanEval & OpenAI & OpenAI o1-mini \cite{o1-mini} & \xmark  \\ 
+        MATH-500 & OpenAI & OpenAI o1-mini \cite{o1-mini} & \cmark  \\ 
+        DROP & OpenAI & GPT-4o mini: advancing cost-efficient intelligence \cite{4o-mini} & \xmark  \\ 
+        MathVista & OpenAI & GPT-4o mini: advancing cost-efficient intelligence \cite{4o-mini} & \cmark  \\ 
+        RE-Bench & OpenAI & GPT-4o System Card \cite{4o} & \cmark  \\ 
+        MedQA & OpenAI & GPT-4o System Card \cite{4o} & \xmark  \\ 
+        MedMCQA & OpenAI & GPT-4o System Card \cite{4o} & \xmark  \\ 
+        ProtocolQA & OpenAI & OpenAI o1 System Card \cite{o1} & \xmark  \\ 
+        BioLP-Bench & OpenAI & OpenAI o1 System Card \cite{o1} & \xmark  \\ 
+        MLE-bench & OpenAI & OpenAI o1 System Card \cite{o1} & \cmark  \\ 
+        Tau-bench & Anthropic & Claude 3.7 Sonnet and Claude Code \cite{claude-3.7} & \cmark  \\ 
+        BIG-Bench-Hard & Anthropic & Claude 3.5 Sonnet \cite{claude-3.5} & \xmark  \\ 
+        IF-Eval & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \xmark  \\ 
+        FRAMES & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \xmark  \\ 
+        LongBench v2 & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \xmark  \\ 
+        Aider-Edit & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \cmark  \\ 
+        Aider-Polyglot & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \cmark  \\ 
+        CNMO 2024 & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \cmark  \\ 
+        CLUEWSC & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \xmark  \\ 
+        C-Eval & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \xmark  \\ 
+        C-SimpleQA & Deepseek & Introducing DeepSeek-V3 \cite{deepseek-V3} & \xmark  \\ 
+        LOFT (128k) & xAI & Grok 3 Beta --- The Age of Reasoning Agents \cite{grok-3} & \xmark  \\ 
+        EgoSchema & xAI & Grok 3 Beta --- The Age of Reasoning Agents \cite{grok-3} & \xmark  \\ 
+        DocVQA & xAI & Grok-2 Beta Release \cite{grok-2} & \xmark  \\ 
+        ChartQA & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        AI2 Diagram & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        VQAv2 & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        Open-rewrite eval & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        TLDR9+ & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        BFCL V2 & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        Nexus & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        ARC Challenge & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        Hellaswag & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        InfiniteBench & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        NIH/Multi-needle & Meta & Llama 3.2: Revolutionizing edge AI and vision with open, customizable models \cite{llama-3.2} & \xmark  \\ 
+        ZeroScrolls & Meta & Introducing Llama 3.1: Our most capable models to date \cite{llama-3.1} & \xmark  \\ 
+        Bird-Bench & Google & Gemini 2.0 is now available to everyone \cite{gemini-2.0} & \cmark  \\ 
+        FACTS Grounding & Google & Gemini 2.0 is now available to everyone \cite{gemini-2.0} & \xmark  \\ 
+        HiddenMath & Google & Gemini 2.0 is now available to everyone \cite{gemini-2.0} & \cmark  \\ 
+        MRCR & Google & Gemini 2.0 is now available to everyone \cite{gemini-2.0} & \xmark  \\ 
+        CoVoST2 & Google & Gemini 2.0 is now available to everyone \cite{gemini-2.0} & \xmark  \\ 
+        MBPP & Mistral & Mistral Large 2 \cite{mixtral-large} & \xmark  \\ 
+        MT-Bench & Mistral & Mistral Large 2 \cite{mixtral-large} & \xmark  \\ 
+        Wild Bench & Mistral & Mistral Large 2 \cite{mixtral-large} & \xmark  \\ 
+        Arena Hard & Mistral & Mistral Large 2 \cite{mixtral-large} & \xmark  \\ 
+        BBH & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        ARC-C & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        ChartQA & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        Doc VQA & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        VATEX & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        Text VQA & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        Ego Schema & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        VisualWebBench & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        NN-Mind2Web & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        GroundUI-1K & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        SQuALITY & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        LVBench & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        FinQA & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        CRAG & Amazon & The Amazon Nova family of models: Technical report and model card \cite{amazon-nova} & \xmark  \\ 
+        Kernel-Bench & DL4C & KernelBench: Can LLMs Write Efficient GPU Kernels? \cite{ouyang2025kernelbench} & \cmark \\
+        \bottomrule
+    \end{longtblr}
+    }

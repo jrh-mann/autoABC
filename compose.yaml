@@ -1,0 +1,5 @@
+services:
+  default:
+    image: python:3.11-bookworm
+    command: tail -f /dev/null
+    network_mode: bridge  # Crucial for git cloning

@@ -1,0 +1,201 @@
+\section{\name: Agentic Benchmark Checklist} \label{sec:checklist}
+
+In this section, we formulate our assessment framework into an actionable 
+checklist (\name). We present the checklist items in terms of task validity, 
+outcome validity, and benchmark reporting.
+
+\subsection{Assessing Task Validity} \label{subsec:eval-impl}
+\begin{figure}
+    \centering
+    % \includegraphics[width=0.9\linewidth,trim={{0.05\linewidth} {0.28\linewidth} {0.05\linewidth} {0.05\linewidth}},clip]{figures/implementation-checklist.pdf}
+    \includegraphics[width=\linewidth]{figures/checklist-challenge.pdf}
+    \caption{Checks in \name to assess the task validity of an agentic benchmark.}
+    \label{fig:impl}
+\end{figure}
+We propose guidelines for ensuring task validity. These checks uncover design or 
+implementation flaws that can create shortcuts, which causes false positive 
+evaluation results, or lead to impossible tasks, which causes false negative 
+evaluation results.
+
+\minihead{Tool} 
+External tools and functions can significantly extend the capabilities of AI 
+agents. Existing benchmarks provide two types of tools: self-hosted tools (\eg, 
+Python, command-line tools) and API-based tools (\eg, web services). For 
+self-hosted tools, it is essential to explicitly specify the correct tool or 
+package versions in the prompt (\checkitem{T.1}). In terms of API-based tools, ensuring service 
+availability and managing rate limits is crucial (\checkitem{T.2}). If API interruptions occur, we 
+recommend detecting them and terminating the evaluation to keep benchmark users 
+informed (\checkitem{T.3}).
+
+\minihead{Environment}
+Agentic benchmarks often need a sandbox environment to simulate real-world 
+scenarios. Implementing and maintaining such environments can be challenging, 
+especially with complex task formulations. First, to ensure the independence of 
+tasks, we need to ensure that any legacy data and states are fully cleaned up 
+before starting a new task (\checkitem{T.4}). For example, \kernelbench failed to remove ground 
+truth answers from GPU memory, allowing agents to obtain the correct result 
+through out-of-bounds memory access \cite{lange2025ai}. Furthermore, to avoid 
+cheating by peeking at ground truth, it is important to fully isolate agents 
+from the ground truth results (\checkitem{T.5}). Finally, the environment setup should be fully 
+reproducible and frozen at the time of benchmark release (\checkitem{T.6}). Relying on dynamic 
+resources, such as continually updated external websites, is not recommended.
+
+\minihead{Implementation}
+Even with a robust setup of tools and environments, subtle implementation 
+vulnerabilities can also result in shortcuts or impossible tasks. Therefore, 
+we recommend verifying the correctness of ground truth annotation and the 
+task setup (\checkitem{T.7-8}). Providing an automatic oracle solver can help demonstrate the 
+correctness of the task configuration (\checkitem{T.9}). Additionally, as demonstrated in 
+\taubench \cite{yaotau}, inspecting outliers in pilot experiments is crucial for
+identifying implementation bugs (\checkitem{T.10}). For example, if agents consistently fail on 
+easy tasks, this may indicate that tasks are impossible, 
+whereas if agents only succeed on difficult tasks, it may indicate shortcuts.
+
+\subsection{Assessing Outcome Validity} \label{subsec:eval-design}
+
+In this part of the assessment, we propose practical checks for ensuring the 
+outcome validity of an agentic benchmark (Figure \ref{fig:design}). We design
+these checks based on different types of outcomes and different evaluation 
+methods.
+
+\minihead{Information Acquisition}
+To evaluate the capability of AI agents to search, retrieve, integrate, and 
+summarize information, agentic benchmarks formulate tasks as information 
+acquisition queries \cite{yaotau,he2024webvoyager,zhang2024cybench,zhouwebarena}. 
+Depending on task requirements, benchmarks use various schemes for 
+evaluating agents' textual responses, including whole string matching \cite{zhang2024cybench}, 
+substring matching \cite{yaotau,zhouwebarena}, and LLM-as-a-judge \cite{zhouwebarena,he2024webvoyager}.
+\begin{enumerate}[leftmargin=*]
+    \item \textit{Whole String Matching} directly compares the agent's response and 
+    the ground truth. When annotating ground truth, it is important to consider 
+    semantically equivalent expressions (\checkitem{O.a.1}) or redundant 
+    words (\checkitem{O.a.2}).\footnote[3]{In practice, users often specify format requirements for AI agents, 
+    which narrows the scope of alternative expressions of the ground truth. 
+    Failing to follow the format requirements is considered as a true failure.}
+    \item \textit{Substring Matching} evaluates whether the agent's response contains the 
+    ground truth. In addition to equivalent expressions, it should 
+    handle negation modifiers (\checkitem{O.b.1}), such as ``not'' and ``negative.'' We also 
+    recommend formulating tasks carefully to prevent success by 
+    listing all possible answers (\checkitem{{O.b.2}}) or guessing (\checkitem{O.b.3}).
+    \item \textit{LLM-as-a-Judge} uses LLMs to emulate human annotators 
+    \cite{zheng2023judging,zeng2023evaluating,bavaresco2024llms,li2024leveraging,zhuge2024agent}.
+    Previous studies have shown that the accuracy of LLM annotations varies 
+    across domains \cite{ziems2024can}. We recommend conducting pilot 
+    experiments to assess the accuracy and self-consistency of LLM judges 
+    (\checkitem{O.c.1}).
+\end{enumerate}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figures/checklist-outcome.pdf}
+    \caption{Checks in \name to assess the outcome validity of an agentic benchmark. 
+    We group items by the types of the outcome and the methods of evaluation.}
+    \label{fig:design}
+\end{figure}
+
+\minihead{Code Generation}
+Existing agentic benchmarks evaluate the capability of AI agents to write code 
+\cite{li2023can,jimenez2024swe,miserendino2025swe,ouyang2025kernelbench}. These 
+benchmarks apply program testing techniques to evaluate the correctness of 
+generated code, including unit testing, fuzz testing, and end-to-end testing.
+\begin{enumerate}[leftmargin=*]
+    \item \textit{Unit Testing} designs test cases for individual functions or
+    classes \cite{runeson2006survey}. However, poorly constructed unit tests can 
+    lead to both false positives and false negatives \cite{stroebl2024inference,
+    utboost}. Therefore, we recommend manually verifying the correctness and 
+    quality of test cases (\checkitem{O.d.1}) \cite{swebench-verified}, and 
+    providing quality guarantees using objective metrics (\checkitem{O.d.2}) 
+    such as coverage \cite{zhu1997software} and cyclomatic complexity 
+    \cite{watson1996structured}.
+    \item \textit{Fuzz Testing} evaluates generated code by running it against 
+    a ground-truth implementation on automatically generated inputs 
+    \cite{zhu2022fuzzing}. We should tailor the input generator to the target
+    program, covering different data values, types, memory layouts, and edge 
+    cases (\checkitem{O.e.1-2}). Moreover, the inputs must affect the 
+    output (\checkitem{O.e.3})---e.g., random negatives reveal nothing about \texttt{relu(x)} \cite{lange2025ai}.
+    \item \textit{End-to-end (E2E) Testing} simulates complete user workflows, 
+    providing comprehensive testing of system functionality \cite{tsai2001end,
+    leotta2023challenges}. In addition to ensuring the general quality of test 
+    cases, it should also cover all possible branches of user 
+    workflows (\checkitem{O.f.1}). Because of their complexity, E2E tests require extra safeguards 
+    to eliminate non-determinism and ensure repeatable results (\checkitem{O.f.2})
+    \cite{parry2021survey}.
+\end{enumerate}
+
+\minihead{State Modification}
+Agentic benchmarks challenge agents to manipulate environment states, such as 
+booking flight tickets \cite{yaotau} and editing websites \cite{xie2024osworld}. 
+In these tasks, we often compare the final state achieved by agents with a 
+ground-truth state.
+
+We identify three key checks for rigorous state matching. First, 
+ground truth states should include all possible outcomes achievable through 
+successful task resolution (\checkitem{O.g.1}). For example, when we challenge 
+agents to attack a website, we should evaluate all possible attack outcomes 
+\cite{zhu2025cve}. Second, the state space should contain both relevant and 
+irrelevant states (\checkitem{O.g.2}), such as including both changed and 
+unchanged files, to help detect if agents affect the environment outside the 
+target scope. Finally, the state space should be complex enough 
+(\checkitem{O.g.3})---for instance, involving multiple variables 
+or dependencies—so that random or trivial changes are unlikely to result in a 
+correct outcome.
+
+\minihead{Multistep Reasoning}
+Agentic benchmarks evaluates multistep reasoning capabilities of AI agents 
+\cite{mialon2023gaia,chan2024mle,glazer2024frontiermath,lightman2023let}. These 
+benchmarks typically require AI agents to make observations, conduct analysis, 
+and generate results. We summarize two common approaches for evaluating these 
+tasks:
+\begin{enumerate}[leftmargin=*]
+    \item \textit{Answer Matching} parses the agents' output and
+    then compares the parsed result with ground truth.
+    We find that parsers in existing benchmarks may make implicit assumption 
+    about the agent's output (\checkitem{O.h.1}). For example, the MATH dataset 
+    assumes the answer of the agent starts with ``Answer:'' \cite{lightman2023let}. Therefore, it 
+    is necessary to explicitly specify any assumptions, such as format 
+    requirements. Additionally, to ensure that a single final answer reflects a 
+    genuine reasoning process, we recommend designing tasks in a way that 
+    avoid success by guessing (\checkitem{O.h.2}) \cite{glazer2024frontiermath}.
+    \item \textit{Quality Measure} evaluates agent using customized 
+    metrics against a baseline when ground truth is impossible to achieve (\eg, 
+    ground-truth predictions in an ML engineering task \cite{chan2024mle}).
+    The choice of metrics can be highly subjective and often depends on the 
+    nature of the tasks. To avoid metric hacking \cite{head2015extent}---achieving
+    high metrics without resolving tasks, we recommend ensuring that the 
+    selected metrics are strongly correlated with the reasoning process (\checkitem{O.i.1}).
+\end{enumerate}
+
+\subsection{Assessing the Benchmark Reporting} \label{subsec:eval-report}
+\begin{figure}
+    \centering
+    % \includegraphics[width=0.75\linewidth,trim={{0.05\linewidth} {0.28\linewidth} {0.05\linewidth} {0.05\linewidth}},clip]{figures/reporting-checklist.pdf}
+    \includegraphics[width=\linewidth]{figures/checklist-reporting.pdf}
+    \caption{Checks in \name to assess the benchmark reporting.}
+    \label{fig:report}
+\end{figure}
+
+Completely avoiding evaluation issues in agentic benchmarks can be challenging, 
+and is sometimes not feasible, especially when using LLM-as-a-Judge or 
+testing-based techniques. In such cases, it is particularly important for 
+benchmark developers to be transparent and clearly communicate the impact of
+these limitations  (Figure \ref{fig:report}).
+
+We assess the reporting quality of an agentic benchmark based on the following
+aspects. In Appendix~\ref{sec:app-example}, we use \birdbench as an example to 
+demonstrate the high-quality benchmark reporting.
+\begin{enumerate}[leftmargin=*]
+    \item \textit{Transparency and Validity}. We encourage open-sourcing both 
+    the datasets and evaluation harness (\checkitem{R.1-2}) while including 
+    measures to prevent data contamination (\checkitem{R.3-4}). We also 
+    recommend clearly specifying the capabilities to evaluate
+    and articulating construct validity \cite{reuelbetterbench} (\checkitem{R.5-6}).
+    \item \textit{Mitigation}. When validity limitations are unavoidable, it is 
+    important to document mitigation efforts (\checkitem{R.7}) and provide both qualitative and 
+    quantitative evidence regarding the impact of those limitations (\checkitem{R.8-9}). In 
+    resource-constraint scenarios, we recommend using sampling and uncertainty 
+    quantification techniques (\eg, Cramer's Theorem \cite{dorner2024don}) to 
+    estimate the impact of unavoidable flaws, such as the noise of ground truth.
+    \item \textit{Result Interpretation}. We recommend reporting benchmark 
+    results rigorously, including measures of statistical significance (\checkitem{R.10}), clear 
+    interpretation guidelines (\checkitem{R.11}), and appropriate baseline comparisons (\checkitem{R.12-13}).
+\end{enumerate}

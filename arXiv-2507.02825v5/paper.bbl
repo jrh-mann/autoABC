@@ -1,0 +1,498 @@
+\begin{thebibliography}{98}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[AI~Security~Institute(2024)]{ukaisi}
+UK~AI~Security~Institute.
+\newblock Inspect {AI:} {Framework} for {Large} {Language} {Model} {Evaluations}, 2024.
+\newblock URL \url{https://github.com/UKGovernmentBEIS/inspect_ai}.
+
+\bibitem[Aider(2024{\natexlab{a}})]{aider-edit}
+Aider.
+\newblock Gpt code editing benchmarks, 2024{\natexlab{a}}.
+\newblock URL \url{https://aider.chat/docs/benchmarks.html}.
+
+\bibitem[Aider(2024{\natexlab{b}})]{aider-polyglot}
+Aider.
+\newblock o1 tops aider’s new polyglot leaderboard, 2024{\natexlab{b}}.
+\newblock URL \url{https://aider.chat/2024/12/21/polyglot.html#the-polyglot-benchmark}.
+
+\bibitem[Amazon(2024)]{amazon-nova}
+Amazon.
+\newblock The amazon nova family of models: Technical report and model card, 2024.
+\newblock URL \url{https://www.amazon.science/publications/the-amazon-nova-family-of-models-technical-report-and-model-card}.
+
+\bibitem[Anthropic(2024)]{claude-3.5}
+Anthropic.
+\newblock Claude 3.5 sonnet, 2024.
+\newblock URL \url{https://www.anthropic.com/news/claude-3-5-sonnet}.
+
+\bibitem[Anthropic(2025)]{claude-3.7}
+Anthropic.
+\newblock Claude 3.7 and claude code, 2025.
+\newblock URL \url{https://www.anthropic.com/news/claude-3-7-sonnet}.
+
+\bibitem[Arcwise(2024)]{bird-dev-errors}
+Arcwise.
+\newblock Bird minidev - corrections, 2024.
+\newblock URL \url{https://docs.google.com/spreadsheets/d/1IGm9Otruey60ujUnl8AOkepY3qgWHdFJHnX7hQGUeCw}.
+
+\bibitem[Austin et~al.(2021)Austin, Odena, Nye, Bosma, Michalewski, Dohan, Jiang, Cai, Terry, Le, et~al.]{austin2021program}
+Jacob Austin, Augustus Odena, Maxwell Nye, Maarten Bosma, Henryk Michalewski, David Dohan, Ellen Jiang, Carrie Cai, Michael Terry, Quoc Le, et~al.
+\newblock Program synthesis with large language models.
+\newblock \emph{arXiv preprint arXiv:2108.07732}, 2021.
+
+\bibitem[Bavaresco et~al.(2024)Bavaresco, Bernardi, Bertolazzi, Elliott, Fern{\'a}ndez, Gatt, Ghaleb, Giulianelli, Hanna, Koller, et~al.]{bavaresco2024llms}
+Anna Bavaresco, Raffaella Bernardi, Leonardo Bertolazzi, Desmond Elliott, Raquel Fern{\'a}ndez, Albert Gatt, Esam Ghaleb, Mario Giulianelli, Michael Hanna, Alexander Koller, et~al.
+\newblock Llms instead of human judges? a large scale empirical study across 20 nlp evaluation tasks.
+\newblock \emph{arXiv preprint arXiv:2406.18403}, 2024.
+
+\bibitem[Cao et~al.(2025)Cao, Chan, Ling, Wang, Li, Liu, Wang, Yu, He, Wang, et~al.]{cao2025should}
+Jialun Cao, Yuk-Kit Chan, Zixuan Ling, Wenxuan Wang, Shuqing Li, Mingwei Liu, Chaozheng Wang, Boxi Yu, Pinjia He, Shuai Wang, et~al.
+\newblock How should i build a benchmark?
+\newblock \emph{arXiv preprint arXiv:2501.10711}, 2025.
+
+\bibitem[Chan et~al.(2024)Chan, Chowdhury, Jaffe, Aung, Sherburn, Mays, Starace, Liu, Maksin, Patwardhan, et~al.]{chan2024mle}
+Jun~Shern Chan, Neil Chowdhury, Oliver Jaffe, James Aung, Dane Sherburn, Evan Mays, Giulio Starace, Kevin Liu, Leon Maksin, Tejal Patwardhan, et~al.
+\newblock Mle-bench: Evaluating machine learning agents on machine learning engineering.
+\newblock \emph{arXiv preprint arXiv:2410.07095}, 2024.
+
+\bibitem[Chen et~al.(2023)Chen, Dong, Shu, Zhang, Sesay, Karlsson, Fu, and Shi]{chen2023autoagents}
+Guangyao Chen, Siwei Dong, Yu~Shu, Ge~Zhang, Jaward Sesay, B{\"o}rje~F Karlsson, Jie Fu, and Yemin Shi.
+\newblock Autoagents: A framework for automatic agent generation.
+\newblock \emph{arXiv preprint arXiv:2309.17288}, 2023.
+
+\bibitem[Chen et~al.(2021)Chen, Tworek, Jun, Yuan, de~Oliveira~Pinto, Kaplan, Edwards, Burda, Joseph, Brockman, Ray, Puri, Krueger, Petrov, Khlaaf, Sastry, Mishkin, Chan, Gray, Ryder, Pavlov, Power, Kaiser, Bavarian, Winter, Tillet, Such, Cummings, Plappert, Chantzis, Barnes, Herbert-Voss, Guss, Nichol, Paino, Tezak, Tang, Babuschkin, Balaji, Jain, Saunders, Hesse, Carr, Leike, Achiam, Misra, Morikawa, Radford, Knight, Brundage, Murati, Mayer, Welinder, McGrew, Amodei, McCandlish, Sutskever, and Zaremba]{chen2021evaluating}
+Mark Chen, Jerry Tworek, Heewoo Jun, Qiming Yuan, Henrique~Ponde de~Oliveira~Pinto, Jared Kaplan, Harri Edwards, Yuri Burda, Nicholas Joseph, Greg Brockman, Alex Ray, Raul Puri, Gretchen Krueger, Michael Petrov, Heidy Khlaaf, Girish Sastry, Pamela Mishkin, Brooke Chan, Scott Gray, Nick Ryder, Mikhail Pavlov, Alethea Power, Lukasz Kaiser, Mohammad Bavarian, Clemens Winter, Philippe Tillet, Felipe~Petroski Such, Dave Cummings, Matthias Plappert, Fotios Chantzis, Elizabeth Barnes, Ariel Herbert-Voss, William~Hebgen Guss, Alex Nichol, Alex Paino, Nikolas Tezak, Jie Tang, Igor Babuschkin, Suchir Balaji, Shantanu Jain, William Saunders, Christopher Hesse, Andrew~N. Carr, Jan Leike, Josh Achiam, Vedant Misra, Evan Morikawa, Alec Radford, Matthew Knight, Miles Brundage, Mira Murati, Katie Mayer, Peter Welinder, Bob McGrew, Dario Amodei, Sam McCandlish, Ilya Sutskever, and Wojciech Zaremba.
+\newblock Evaluating large language models trained on code, 2021.
+
+\bibitem[Chowdhury et~al.(2024)Chowdhury, Aung, Shern, Jaffe, Sherburn, Starace, Mays, Dias, Aljubeh, Glaese, Jimenez, Yang, Ho, Patwardhan, Liu, and Madry]{swebench-verified}
+Neil Chowdhury, James Aung, Chan~Jun Shern, Oliver Jaffe, Dane Sherburn, Giulio Starace, Evan Mays, Rachel Dias, Marwan Aljubeh, Mia Glaese, Carlos~E. Jimenez, John Yang, Leyton Ho, Tejal Patwardhan, Kevin Liu, and Aleksander Madry.
+\newblock Introducing swe-bench verified, 2024.
+\newblock URL \url{https://openai.com/index/introducing-swe-bench-verified/}.
+
+\bibitem[DeepSeek(2024)]{deepseek-V3}
+DeepSeek.
+\newblock Introducing deepseek v3, 2024.
+\newblock URL \url{https://api-docs.deepseek.com/news/news1226}.
+
+\bibitem[Deng et~al.(2009)Deng, Dong, Socher, Li, Li, and Fei-Fei]{deng2009imagenet}
+Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Li~Fei-Fei.
+\newblock Imagenet: A large-scale hierarchical image database.
+\newblock In \emph{2009 IEEE conference on computer vision and pattern recognition}, pages 248--255. Ieee, 2009.
+
+\bibitem[Dorner and Hardt(2024)]{dorner2024don}
+Florian~E Dorner and Moritz Hardt.
+\newblock Don’t label twice: Quantity beats quality when comparing binary classifiers on a budget.
+\newblock In \emph{International Conference on Machine Learning}, pages 11544--11572. PMLR, 2024.
+
+\bibitem[Dorner et~al.(2025)Dorner, Nastl, and Hardt]{dorner2024limits}
+Florian~E Dorner, Vivian~Y Nastl, and Moritz Hardt.
+\newblock Limits to scalable evaluation at the frontier: Llm as judge won't beat twice the data.
+\newblock \emph{International Conference on Learning Representations}, 2025.
+
+\bibitem[Duplyakin et~al.(2019)Duplyakin, Ricci, Maricq, Wong, Duerig, Eide, Stoller, Hibler, Johnson, Webb, Akella, Wang, Ricart, Landweber, Elliott, Zink, Cecchet, Kar, and Mishra]{cloudlab}
+Dmitry Duplyakin, Robert Ricci, Aleksander Maricq, Gary Wong, Jonathon Duerig, Eric Eide, Leigh Stoller, Mike Hibler, David Johnson, Kirk Webb, Aditya Akella, Kuangching Wang, Glenn Ricart, Larry Landweber, Chip Elliott, Michael Zink, Emmanuel Cecchet, Snigdhaswin Kar, and Prabodh Mishra.
+\newblock The design and operation of {CloudLab}.
+\newblock In \emph{Proceedings of the {USENIX} Annual Technical Conference (ATC)}, pages 1--14, July 2019.
+\newblock URL \url{https://www.flux.utah.edu/paper/duplyakin-atc19}.
+
+\bibitem[Eriksson et~al.(2025)Eriksson, Purificato, Noroozian, Vinagre, Chaslot, Gomez, and Fernandez-Llorca]{eriksson2025can}
+Maria Eriksson, Erasmo Purificato, Arman Noroozian, Joao Vinagre, Guillaume Chaslot, Emilia Gomez, and David Fernandez-Llorca.
+\newblock Can we trust ai benchmarks? an interdisciplinary review of current issues in ai evaluation.
+\newblock \emph{arXiv preprint arXiv:2502.06559}, 2025.
+
+\bibitem[Fei-Fei and Krishna(2022)]{fei2022searching}
+Li~Fei-Fei and Ranjay Krishna.
+\newblock Searching for computer vision north stars.
+\newblock \emph{Daedalus}, 151\penalty0 (2):\penalty0 85--99, 2022.
+
+\bibitem[Glazer et~al.(2024)Glazer, Erdil, Besiroglu, Chicharro, Chen, Gunning, Olsson, Denain, Ho, Santos, et~al.]{glazer2024frontiermath}
+Elliot Glazer, Ege Erdil, Tamay Besiroglu, Diego Chicharro, Evan Chen, Alex Gunning, Caroline~Falkman Olsson, Jean-Stanislas Denain, Anson Ho, Emily de~Oliveira Santos, et~al.
+\newblock Frontiermath: A benchmark for evaluating advanced mathematical reasoning in ai.
+\newblock \emph{arXiv preprint arXiv:2411.04872}, 2024.
+
+\bibitem[Halfond et~al.(2006)Halfond, Viegas, Orso, et~al.]{halfond2006classification}
+William~GJ Halfond, Jeremy Viegas, Alessandro Orso, et~al.
+\newblock A classification of sql injection attacks and countermeasures.
+\newblock In \emph{ISSSE}, 2006.
+
+\bibitem[Hardy et~al.(2025)Hardy, Reuel, Jafari~Meimandi, Soder, Griffith, Asmar, Koyejo, Bernstein, and Kochenderfer]{hardy2025more}
+Amelia Hardy, Anka Reuel, Kiana Jafari~Meimandi, Lisa Soder, Allie Griffith, Dylan~M Asmar, Sanmi Koyejo, Michael~S Bernstein, and Mykel~John Kochenderfer.
+\newblock More than marketing? on the information value of ai benchmarks for practitioners.
+\newblock In \emph{Proceedings of the 30th International Conference on Intelligent User Interfaces}, pages 1032--1047, 2025.
+
+\bibitem[He et~al.(2024)He, Yao, Ma, Yu, Dai, Zhang, Lan, and Yu]{he2024webvoyager}
+Hongliang He, Wenlin Yao, Kaixin Ma, Wenhao Yu, Yong Dai, Hongming Zhang, Zhenzhong Lan, and Dong Yu.
+\newblock Webvoyager: Building an end-to-end web agent with large multimodal models.
+\newblock \emph{arXiv preprint arXiv:2401.13919}, 2024.
+
+\bibitem[Head et~al.(2015)Head, Holman, Lanfear, Kahn, and Jennions]{head2015extent}
+Megan~L Head, Luke Holman, Rob Lanfear, Andrew~T Kahn, and Michael~D Jennions.
+\newblock The extent and consequences of p-hacking in science.
+\newblock \emph{PLoS biology}, 13\penalty0 (3):\penalty0 e1002106, 2015.
+
+\bibitem[Hendrycks et~al.(2020)Hendrycks, Burns, Basart, Zou, Mazeika, Song, and Steinhardt]{hendrycks2020measuring}
+Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou, Mantas Mazeika, Dawn Song, and Jacob Steinhardt.
+\newblock Measuring massive multitask language understanding.
+\newblock \emph{arXiv preprint arXiv:2009.03300}, 2020.
+
+\bibitem[Hothorn et~al.(2005)Hothorn, Leisch, Zeileis, and Hornik]{hothorn2005design}
+Torsten Hothorn, Friedrich Leisch, Achim Zeileis, and Kurt Hornik.
+\newblock The design and analysis of benchmark experiments.
+\newblock \emph{Journal of Computational and Graphical Statistics}, 14\penalty0 (3):\penalty0 675--699, 2005.
+
+\bibitem[Jabiyev et~al.(2021)Jabiyev, Mirzaei, Kharraz, and Kirda]{jabiyev2021preventing}
+Bahruz Jabiyev, Omid Mirzaei, Amin Kharraz, and Engin Kirda.
+\newblock Preventing server-side request forgery attacks.
+\newblock In \emph{Proceedings of the 36th Annual ACM Symposium on Applied Computing}, pages 1626--1635, 2021.
+
+\bibitem[Jimenez et~al.(2024)Jimenez, Yang, Wettig, Yao, Pei, Press, and Narasimhan]{jimenez2024swe}
+Carlos~E Jimenez, John Yang, Alexander Wettig, Shunyu Yao, Kexin Pei, Ofir Press, and Karthik~R Narasimhan.
+\newblock Swe-bench: Can language models resolve real-world github issues?
+\newblock In \emph{ICLR}, 2024.
+
+\bibitem[Jimenez et~al.(2025)Jimenez, Yang, Wettig, Yao, Pei, Press, and Narasimhan]{swe-leaderboard}
+Carlos~E Jimenez, John Yang, Alexander Wettig, Shunyu Yao, Kexin Pei, Ofir Press, and Karthik~R Narasimhan.
+\newblock Swe-bench verified leaderboard, 2025.
+\newblock URL \url{https://www.swebench.com/#verified}.
+
+\bibitem[Kapoor et~al.(2024)Kapoor, Stroebl, Siegel, Nadgir, and Narayanan]{kapoor2024ai}
+Sayash Kapoor, Benedikt Stroebl, Zachary~S Siegel, Nitya Nadgir, and Arvind Narayanan.
+\newblock Ai agents that matter.
+\newblock \emph{arXiv preprint arXiv:2407.01502}, 2024.
+
+\bibitem[Kavukcuoglu(2025)]{gemini-2.0}
+Koray Kavukcuoglu.
+\newblock Gemini 2.0 is now available to everyone, 2025.
+\newblock URL \url{https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/}.
+
+\bibitem[Kydlíček and Gandenberger(2025)]{key}
+Hynek Kydlíček and Greg Gandenberger.
+\newblock Math-verify, 2025.
+\newblock URL \url{https://github.com/huggingface/Math-Verify}.
+
+\bibitem[Lange et~al.(2025)Lange, Prasad, Sun, Faldor, Tang, and Ha]{lange2025ai}
+Robert~Tjarko Lange, Aaditya Prasad, Qi~Sun, Maxence Faldor, Yujin Tang, and David Ha.
+\newblock The ai cuda engineer: Agentic cuda kernel discovery, optimization and composition.
+\newblock 2025.
+
+\bibitem[Leotta et~al.(2023)Leotta, Garc{\'\i}a, Ricca, and Whitehead]{leotta2023challenges}
+Maurizio Leotta, Boni Garc{\'\i}a, Filippo Ricca, and Jim Whitehead.
+\newblock Challenges of end-to-end testing with selenium webdriver and how to face them: A survey.
+\newblock In \emph{2023 IEEE Conference on Software Testing, Verification and Validation (ICST)}, pages 339--350. IEEE, 2023.
+
+\bibitem[Li et~al.(2023)Li, Hui, Qu, Yang, Li, Li, Wang, Qin, Geng, Huo, et~al.]{li2023can}
+Jinyang Li, Binyuan Hui, Ge~Qu, Jiaxi Yang, Binhua Li, Bowen Li, Bailin Wang, Bowen Qin, Ruiying Geng, Nan Huo, et~al.
+\newblock Can llm already serve as a database interface? a big bench for large-scale database grounded text-to-sqls.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36:\penalty0 42330--42357, 2023.
+
+\bibitem[Li et~al.(2024)Li, Xu, Shen, Xu, Gu, Lai, Tao, and Ma]{li2024leveraging}
+Zhen Li, Xiaohan Xu, Tao Shen, Can Xu, Jia-Chen Gu, Yuxuan Lai, Chongyang Tao, and Shuai Ma.
+\newblock Leveraging large language models for nlg evaluation: Advances and challenges.
+\newblock In \emph{Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing}, pages 16028--16045, 2024.
+
+\bibitem[Lightman et~al.(2023)Lightman, Kosaraju, Burda, Edwards, Baker, Lee, Leike, Schulman, Sutskever, and Cobbe]{lightman2023let}
+Hunter Lightman, Vineet Kosaraju, Yuri Burda, Harrison Edwards, Bowen Baker, Teddy Lee, Jan Leike, John Schulman, Ilya Sutskever, and Karl Cobbe.
+\newblock Let's verify step by step.
+\newblock In \emph{The Twelfth International Conference on Learning Representations}, 2023.
+
+\bibitem[Lin et~al.(2023)Lin, Fu, Yang, Brahman, Huang, Bhagavatula, Ammanabrolu, Choi, and Ren]{lin2023swiftsage}
+Bill~Yuchen Lin, Yicheng Fu, Karina Yang, Faeze Brahman, Shiyu Huang, Chandra Bhagavatula, Prithviraj Ammanabrolu, Yejin Choi, and Xiang Ren.
+\newblock Swiftsage: A generative agent with fast and slow thinking for complex interactive tasks.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36:\penalty0 23813--23825, 2023.
+
+\bibitem[McIntosh et~al.(2024)McIntosh, Susnjak, Arachchilage, Liu, Watters, and Halgamuge]{mcintosh2024inadequacies}
+Timothy~R McIntosh, Teo Susnjak, Nalin Arachchilage, Tong Liu, Paul Watters, and Malka~N Halgamuge.
+\newblock Inadequacies of large language model benchmarks in the era of generative artificial intelligence.
+\newblock \emph{arXiv preprint arXiv:2402.09880}, 2024.
+
+\bibitem[Meta(2024{\natexlab{a}})]{llama-3.1}
+Meta.
+\newblock Introducing llama 3.1: Our most capable models to date, 2024{\natexlab{a}}.
+\newblock URL \url{https://ai.meta.com/blog/meta-llama-3-1/}.
+
+\bibitem[Meta(2024{\natexlab{b}})]{llama-3.2}
+Meta.
+\newblock Llama 3.2: Revolutionizing edge ai and vision with open, customizable models, 2024{\natexlab{b}}.
+\newblock URL \url{https://ai.meta.com/blog/llama-3-2-connect-2024-vision-edge-mobile-devices/}.
+
+\bibitem[METR(2023)]{metr}
+METR.
+\newblock Evaluating language-model agents on realistic autonomous tasks, 2023.
+\newblock URL \url{https://metr.org/blog/2023-08-01-new-report/}.
+
+\bibitem[METR(2024)]{metr-protocol}
+METR.
+\newblock Example protocol for running an ai agent evaluation, 2024.
+\newblock URL \url{https://metr.github.io/autonomy-evals-guide/example-protocol/}.
+
+\bibitem[METR(2025)]{metr-kernel}
+METR.
+\newblock Measuring automated kernel engineering, 2025.
+\newblock URL \url{https://metr.org/blog/2025-02-14-measuring-automated-kernel-engineering}.
+
+\bibitem[Mialon et~al.(2023)Mialon, Fourrier, Wolf, LeCun, and Scialom]{mialon2023gaia}
+Gr{\'e}goire Mialon, Cl{\'e}mentine Fourrier, Thomas Wolf, Yann LeCun, and Thomas Scialom.
+\newblock Gaia: a benchmark for general ai assistants.
+\newblock In \emph{The Twelfth International Conference on Learning Representations}, 2023.
+
+\bibitem[Miserendino et~al.(2025)Miserendino, Wang, Patwardhan, and Heidecke]{miserendino2025swe}
+Samuel Miserendino, Michele Wang, Tejal Patwardhan, and Johannes Heidecke.
+\newblock Swe-lancer: Can frontier llms earn \$1 million from real-world freelance software engineering?
+\newblock \emph{arXiv preprint arXiv:2502.12115}, 2025.
+
+\bibitem[Mistral-AI(2024)]{mixtral-large}
+Mistral-AI.
+\newblock Mixtral large 2, 2024.
+\newblock URL \url{https://mistral.ai/news/mistral-large-2407}.
+
+\bibitem[OpenAI(2023)]{openai-preparedness}
+OpenAI.
+\newblock Preparedness framework (beta), 2023.
+\newblock URL \url{https://cdn.openai.com/openai-preparedness-framework-beta.pdf}.
+
+\bibitem[OpenAI(2024{\natexlab{a}})]{4o}
+OpenAI.
+\newblock Gpt-4o system card, 2024{\natexlab{a}}.
+\newblock URL \url{https://openai.com/index/gpt-4o-system-card/}.
+
+\bibitem[OpenAI(2024{\natexlab{b}})]{o1}
+OpenAI.
+\newblock Openai o1 system card, 2024{\natexlab{b}}.
+\newblock URL \url{https://openai.com/index/openai-o1-system-card/}.
+
+\bibitem[OpenAI(2024{\natexlab{c}})]{o1-mini}
+OpenAI.
+\newblock Openai o1-mini, 2024{\natexlab{c}}.
+\newblock URL \url{https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/}.
+
+\bibitem[OpenAI(2025{\natexlab{a}})]{4o-mini}
+OpenAI.
+\newblock Gpt-4o mini: advancing cost-efficient intelligence, 2025{\natexlab{a}}.
+\newblock URL \url{https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/}.
+
+\bibitem[OpenAI(2025{\natexlab{b}})]{computer-user}
+OpenAI.
+\newblock Computer-user agent, 2025{\natexlab{b}}.
+\newblock URL \url{https://openai.com/index/computer-using-agent/}.
+
+\bibitem[OpenAI(2025{\natexlab{c}})]{deep-research}
+OpenAI.
+\newblock Introducing deep research, 2025{\natexlab{c}}.
+\newblock URL \url{https://openai.com/index/introducing-deep-research/}.
+
+\bibitem[OpenAI(2025{\natexlab{d}})]{gpt-4.5}
+OpenAI.
+\newblock Introducing gpt-4.5, 2025{\natexlab{d}}.
+\newblock URL \url{https://openai.com/index/introducing-gpt-4-5/}.
+
+\bibitem[OpenAI(2025{\natexlab{e}})]{o3-mini}
+OpenAI.
+\newblock Openai o3-mini, 2025{\natexlab{e}}.
+\newblock URL \url{https://openai.com/index/openai-o3-mini/}.
+
+\bibitem[Ouyang et~al.(2025)Ouyang, Guo, Arora, Zhang, Hu, Re, and Mirhoseini]{ouyang2025kernelbench}
+Anne Ouyang, Simon Guo, Simran Arora, Alex~L Zhang, William Hu, Christopher Re, and Azalia Mirhoseini.
+\newblock Kernelbench: Can llms write efficient gpu kernels?
+\newblock In \emph{ICLR 2025 Third Workshop on Deep Learning for Code (Best paper award)}, 2025.
+
+\bibitem[Papineni et~al.(2002)Papineni, Roukos, Ward, and Zhu]{papineni2002bleu}
+Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu.
+\newblock Bleu: a method for automatic evaluation of machine translation.
+\newblock In \emph{Proceedings of the 40th annual meeting of the Association for Computational Linguistics}, pages 311--318, 2002.
+
+\bibitem[Parry et~al.(2021)Parry, Kapfhammer, Hilton, and McMinn]{parry2021survey}
+Owain Parry, Gregory~M Kapfhammer, Michael Hilton, and Phil McMinn.
+\newblock A survey of flaky tests.
+\newblock \emph{ACM Transactions on Software Engineering and Methodology (TOSEM)}, 31\penalty0 (1):\penalty0 1--74, 2021.
+
+\bibitem[Pourreza and Rafiei(2023)]{pourreza2023evaluating}
+Mohammadreza Pourreza and Davood Rafiei.
+\newblock Evaluating cross-domain text-to-sql models and benchmarks.
+\newblock \emph{arXiv preprint arXiv:2310.18538}, 2023.
+
+\bibitem[Quan et~al.(2025)Quan, Yang, Yu, Zheng, Liu, Yang, Ren, Gao, Miao, Feng, et~al.]{quan2025codeelo}
+Shanghaoran Quan, Jiaxi Yang, Bowen Yu, Bo~Zheng, Dayiheng Liu, An~Yang, Xuancheng Ren, Bofei Gao, Yibo Miao, Yunlong Feng, et~al.
+\newblock Codeelo: Benchmarking competition-level code generation of llms with human-comparable elo ratings.
+\newblock \emph{arXiv preprint arXiv:2501.01257}, 2025.
+
+\bibitem[Raji et~al.()Raji, Denton, Bender, Hanna, and Paullada]{raji2ai}
+Inioluwa~Deborah Raji, Emily Denton, Emily~M Bender, Alex Hanna, and Amandalynne Paullada.
+\newblock Ai and the everything in the whole wide world benchmark.
+\newblock In \emph{Thirty-fifth Conference on Neural Information Processing Systems Datasets and Benchmarks Track (Round 2)}.
+
+\bibitem[Reuel et~al.(2024)Reuel, Hardy, Smith, Lamparth, Hardy, and Kochenderfer]{reuelbetterbench}
+Anka Reuel, Amelia Hardy, Chandler Smith, Max Lamparth, Malcolm Hardy, and Mykel Kochenderfer.
+\newblock Betterbench: Assessing ai benchmarks, uncovering issues, and establishing best practices.
+\newblock In \emph{The Thirty-eight Conference on Neural Information Processing Systems Datasets and Benchmarks Track}, 2024.
+
+\bibitem[Ricca and Tonella(2001)]{ricca2001analysis}
+Filippo Ricca and Paolo Tonella.
+\newblock Analysis and testing of web applications.
+\newblock In \emph{Proceedings of the 23rd International Conference on Software Engineering. ICSE 2001}, pages 25--34. IEEE, 2001.
+
+\bibitem[Runeson(2006)]{runeson2006survey}
+Per Runeson.
+\newblock A survey of unit testing practices.
+\newblock \emph{IEEE software}, 23\penalty0 (4):\penalty0 22--29, 2006.
+
+\bibitem[Shinn et~al.(2023)Shinn, Cassano, Gopinath, Narasimhan, and Yao]{shinn2023reflexion}
+Noah Shinn, Federico Cassano, Ashwin Gopinath, Karthik Narasimhan, and Shunyu Yao.
+\newblock Reflexion: Language agents with verbal reinforcement learning.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36:\penalty0 8634--8652, 2023.
+
+\bibitem[Staff(2025)]{usaisi}
+US~AI Safety Institute~Technical Staff.
+\newblock Strengthening ai agent hijacking evaluations, 2025.
+\newblock URL \url{https://www.nist.gov/news-events/news/2025/01/technical-blog-strengthening-ai-agent-hijacking-evaluations}.
+
+\bibitem[Stroebl et~al.(2024)Stroebl, Kapoor, and Narayanan]{stroebl2024inference}
+Benedikt Stroebl, Sayash Kapoor, and Arvind Narayanan.
+\newblock Inference scaling flaws: The limits of llm resampling with imperfect verifiers.
+\newblock \emph{arXiv preprint arXiv:2411.17501}, 2024.
+
+\bibitem[Tang et~al.(2024)Tang, Key, and Ellis]{tang2024worldcoder}
+Hao Tang, Darren Key, and Kevin Ellis.
+\newblock Worldcoder, a model-based llm agent: Building world models by writing code and interacting with the environment.
+\newblock \emph{Advances in Neural Information Processing Systems}, 37:\penalty0 70148--70212, 2024.
+
+\bibitem[Tsai et~al.(2001)Tsai, Bai, Paul, Shao, and Agarwal]{tsai2001end}
+Wei-Tek Tsai, Xiaoying Bai, Ray Paul, Weiguang Shao, and Vishal Agarwal.
+\newblock End-to-end integration testing design.
+\newblock In \emph{25th Annual International Computer Software and Applications Conference. COMPSAC 2001}, pages 166--171. IEEE, 2001.
+
+\bibitem[Tsipras et~al.(2020)Tsipras, Santurkar, Engstrom, Ilyas, and Madry]{tsipras2020imagenet}
+Dimitris Tsipras, Shibani Santurkar, Logan Engstrom, Andrew Ilyas, and Aleksander Madry.
+\newblock From imagenet to image classification: Contextualizing progress on benchmarks.
+\newblock In \emph{International Conference on Machine Learning}, pages 9625--9635. PMLR, 2020.
+
+\bibitem[Vidgen et~al.(2024)Vidgen, Agrawal, Ahmed, Akinwande, Al-Nuaimi, Alfaraj, Alhajjar, Aroyo, Bavalatti, Bartolo, et~al.]{vidgen2024introducing}
+Bertie Vidgen, Adarsh Agrawal, Ahmed~M Ahmed, Victor Akinwande, Namir Al-Nuaimi, Najla Alfaraj, Elie Alhajjar, Lora Aroyo, Trupti Bavalatti, Max Bartolo, et~al.
+\newblock Introducing v0. 5 of the ai safety benchmark from mlcommons.
+\newblock \emph{arXiv preprint arXiv:2404.12241}, 2024.
+
+\bibitem[Von~Werra et~al.(2022)Von~Werra, Tunstall, Thakur, Luccioni, Thrush, Piktus, Marty, Rajani, Mustar, and Ngo]{von2022evaluate}
+Leandro Von~Werra, Lewis Tunstall, Abhishek Thakur, Sasha Luccioni, Tristan Thrush, Aleksandra Piktus, Felix Marty, Nazneen Rajani, Victor Mustar, and Helen Ngo.
+\newblock Evaluate \& evaluation on the hub: Better best practices for data and model measurements.
+\newblock In \emph{Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing: System Demonstrations}, pages 128--136, 2022.
+
+\bibitem[Watson et~al.(1996)Watson, Wallace, and McCabe]{watson1996structured}
+Arthur~Henry Watson, Dolores~R Wallace, and Thomas~J McCabe.
+\newblock \emph{Structured testing: A testing methodology using the cyclomatic complexity metric}, volume 500.
+\newblock US Department of Commerce, Technology Administration, National Institute of~…, 1996.
+
+\bibitem[Wei et~al.(2024)Wei, Karina, Chung, Jiao, Papay, Glaese, Schulman, and Fedus]{wei2024measuring}
+Jason Wei, Nguyen Karina, Hyung~Won Chung, Yunxin~Joy Jiao, Spencer Papay, Amelia Glaese, John Schulman, and William Fedus.
+\newblock Measuring short-form factuality in large language models.
+\newblock \emph{arXiv preprint arXiv:2411.04368}, 2024.
+
+\bibitem[White et~al.(2024)White, Dooley, Roberts, Pal, Feuer, Jain, Shwartz-Ziv, Jain, Saifullah, Naidu, et~al.]{white2024livebench}
+Colin White, Samuel Dooley, Manley Roberts, Arka Pal, Ben Feuer, Siddhartha Jain, Ravid Shwartz-Ziv, Neel Jain, Khalid Saifullah, Siddartha Naidu, et~al.
+\newblock Livebench: A challenging, contamination-free llm benchmark.
+\newblock \emph{arXiv preprint arXiv:2406.19314}, 2024.
+
+\bibitem[Wijk et~al.(2024)Wijk, Lin, Becker, Jawhar, Parikh, Broadley, Chan, Chen, Clymer, Dhyani, et~al.]{wijk2024re}
+Hjalmar Wijk, Tao Lin, Joel Becker, Sami Jawhar, Neev Parikh, Thomas Broadley, Lawrence Chan, Michael Chen, Josh Clymer, Jai Dhyani, et~al.
+\newblock Re-bench: Evaluating frontier ai r\&d capabilities of language model agents against human experts.
+\newblock \emph{arXiv preprint arXiv:2411.15114}, 2024.
+
+\bibitem[Wretblad et~al.(2024)Wretblad, Riseby, Biswas, Ahmadi, and Holmstr{\"o}m]{wretblad2024understanding}
+Niklas Wretblad, Fredrik~Gordh Riseby, Rahul Biswas, Amin Ahmadi, and Oskar Holmstr{\"o}m.
+\newblock Understanding the effects of noise in text-to-sql: an examination of the bird-bench benchmark.
+\newblock \emph{arXiv preprint arXiv:2402.12243}, 2024.
+
+\bibitem[xAI(2024{\natexlab{a}})]{grok-2}
+xAI.
+\newblock Grok 2 beta release, 2024{\natexlab{a}}.
+\newblock URL \url{https://x.ai/news/grok-2}.
+
+\bibitem[xAI(2024{\natexlab{b}})]{grok-3}
+xAI.
+\newblock Grok 3 beta --- the age of reasoning agents, 2024{\natexlab{b}}.
+\newblock URL \url{https://x.ai/news/grok-3}.
+
+\bibitem[Xie et~al.(2024)Xie, Zhang, Chen, Li, Zhao, Cao, Toh, Cheng, Shin, Lei, et~al.]{xie2024osworld}
+Tianbao Xie, Danyang Zhang, Jixuan Chen, Xiaochuan Li, Siheng Zhao, Ruisheng Cao, Jing~Hua Toh, Zhoujun Cheng, Dongchan Shin, Fangyu Lei, et~al.
+\newblock Osworld: Benchmarking multimodal agents for open-ended tasks in real computer environments.
+\newblock \emph{Advances in Neural Information Processing Systems}, 37:\penalty0 52040--52094, 2024.
+
+\bibitem[Yang et~al.(2024)Yang, Jimenez, Wettig, Lieret, Yao, Narasimhan, and Press]{yang2024swe}
+John Yang, Carlos Jimenez, Alexander Wettig, Kilian Lieret, Shunyu Yao, Karthik Narasimhan, and Ofir Press.
+\newblock Swe-agent: Agent-computer interfaces enable automated software engineering.
+\newblock \emph{Advances in Neural Information Processing Systems}, 37:\penalty0 50528--50652, 2024.
+
+\bibitem[Yao et~al.(2023)Yao, Zhao, Yu, Du, Shafran, Narasimhan, and Cao]{yaoreact}
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik~R Narasimhan, and Yuan Cao.
+\newblock React: Synergizing reasoning and acting in language models.
+\newblock In \emph{The Eleventh International Conference on Learning Representations}, 2023.
+
+\bibitem[Yao et~al.(2025)Yao, Shinn, Razavi, and Narasimhan]{yaotau}
+Shunyu Yao, Noah Shinn, Pedram Razavi, and Karthik~R Narasimhan.
+\newblock tau-bench: A benchmark for tool-agent-user interaction in real-world domains.
+\newblock In \emph{The Thirteenth International Conference on Learning Representations}, 2025.
+
+\bibitem[Yu et~al.(2025)Yu, Zhu, He, and Kang]{utboost}
+Boxi Yu, Yuxuan Zhu, Pinjia He, and Daniel Kang.
+\newblock Utboost: Rigorous evaluation of coding agents on swe-bench.
+\newblock \emph{ACL}, 2025.
+
+\bibitem[Zeng et~al.(2024)Zeng, Yu, Gao, Meng, Goyal, and Chen]{zeng2023evaluating}
+Zhiyuan Zeng, Jiatong Yu, Tianyu Gao, Yu~Meng, Tanya Goyal, and Danqi Chen.
+\newblock Evaluating large language models at evaluating instruction following.
+\newblock \emph{ICLR}, 2024.
+
+\bibitem[Zhang et~al.(2024)Zhang, Perry, Dulepet, Ji, Menders, Lin, Jones, Hussein, Liu, Jasper, et~al.]{zhang2024cybench}
+Andy~K Zhang, Neil Perry, Riya Dulepet, Joey Ji, Celeste Menders, Justin~W Lin, Eliot Jones, Gashon Hussein, Samantha Liu, Donovan Jasper, et~al.
+\newblock Cybench: A framework for evaluating cybersecurity capabilities and risks of language models.
+\newblock \emph{arXiv preprint arXiv:2408.08926}, 2024.
+
+\bibitem[Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li, Li, Xing, et~al.]{zheng2023judging}
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan Zhuang, Zhanghao Wu, Yonghao Zhuang, Zi~Lin, Zhuohan Li, Dacheng Li, Eric Xing, et~al.
+\newblock Judging llm-as-a-judge with mt-bench and chatbot arena.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36:\penalty0 46595--46623, 2023.
+
+\bibitem[Zhou et~al.(2023)Zhou, Zhu, Chen, Chen, Zhao, Chen, Lin, Wen, and Han]{zhou2023don}
+Kun Zhou, Yutao Zhu, Zhipeng Chen, Wentong Chen, Wayne~Xin Zhao, Xu~Chen, Yankai Lin, Ji-Rong Wen, and Jiawei Han.
+\newblock Don't make your llm an evaluation benchmark cheater.
+\newblock \emph{arXiv preprint arXiv:2311.01964}, 2023.
+
+\bibitem[Zhou et~al.(2024{\natexlab{a}})Zhou, Xu, Zhu, Zhou, Lo, Sridhar, Cheng, Ou, Bisk, Fried, et~al.]{webarena-leaderboard}
+Shuyan Zhou, Frank~F Xu, Hao Zhu, Xuhui Zhou, Robert Lo, Abishek Sridhar, Xianyi Cheng, Tianyue Ou, Yonatan Bisk, Daniel Fried, et~al.
+\newblock X-webarena-leaderboard, 2024{\natexlab{a}}.
+\newblock URL \url{https://docs.google.com/spreadsheets/d/1M801lEpBbKSNwP-vDBkC_pF7LdyGU1f_ufZb_NWNBZQ/edit?gid=0#gid=0}.
+
+\bibitem[Zhou et~al.(2024{\natexlab{b}})Zhou, Xu, Zhu, Zhou, Lo, Sridhar, Cheng, Ou, Bisk, Fried, et~al.]{zhouwebarena}
+Shuyan Zhou, Frank~F Xu, Hao Zhu, Xuhui Zhou, Robert Lo, Abishek Sridhar, Xianyi Cheng, Tianyue Ou, Yonatan Bisk, Daniel Fried, et~al.
+\newblock Webarena: A realistic web environment for building autonomous agents.
+\newblock In \emph{The Twelfth International Conference on Learning Representations}, 2024{\natexlab{b}}.
+
+\bibitem[Zhu et~al.(1997)Zhu, Hall, and May]{zhu1997software}
+Hong Zhu, Patrick~AV Hall, and John~HR May.
+\newblock Software unit test coverage and adequacy.
+\newblock \emph{Acm computing surveys (csur)}, 29\penalty0 (4):\penalty0 366--427, 1997.
+
+\bibitem[Zhu et~al.(2022)Zhu, Wen, Camtepe, and Xiang]{zhu2022fuzzing}
+Xiaogang Zhu, Sheng Wen, Seyit Camtepe, and Yang Xiang.
+\newblock Fuzzing: a survey for roadmap.
+\newblock \emph{ACM Computing Surveys (CSUR)}, 54\penalty0 (11s):\penalty0 1--36, 2022.
+
+\bibitem[Zhu et~al.(2025)Zhu, Kellermann, Bowman, Li, Gupta, Danda, Fang, Jensen, Ihli, Benn, et~al.]{zhu2025cve}
+Yuxuan Zhu, Antony Kellermann, Dylan Bowman, Philip Li, Akul Gupta, Adarsh Danda, Richard Fang, Conner Jensen, Eric Ihli, Jason Benn, et~al.
+\newblock Cve-bench: A benchmark for ai agents' ability to exploit real-world web application vulnerabilities.
+\newblock \emph{arXiv preprint arXiv:2503.17332}, 2025.
+
+\bibitem[Zhuge et~al.(2024)Zhuge, Zhao, Ashley, Wang, Khizbullin, Xiong, Liu, Chang, Krishnamoorthi, Tian, et~al.]{zhuge2024agent}
+Mingchen Zhuge, Changsheng Zhao, Dylan Ashley, Wenyi Wang, Dmitrii Khizbullin, Yunyang Xiong, Zechun Liu, Ernie Chang, Raghuraman Krishnamoorthi, Yuandong Tian, et~al.
+\newblock Agent-as-a-judge: Evaluate agents with agents.
+\newblock \emph{arXiv preprint arXiv:2410.10934}, 2024.
+
+\bibitem[Ziems et~al.(2024)Ziems, Held, Shaikh, Chen, Zhang, and Yang]{ziems2024can}
+Caleb Ziems, William Held, Omar Shaikh, Jiaao Chen, Zhehao Zhang, and Diyi Yang.
+\newblock Can large language models transform computational social science?
+\newblock \emph{Computational Linguistics}, 50\penalty0 (1):\penalty0 237--291, 2024.
+
+\end{thebibliography}
